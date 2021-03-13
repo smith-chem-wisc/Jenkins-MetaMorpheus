@@ -1,0 +1,35 @@
+pipeline {
+	agent any
+	stages {
+	    stage ('Checkout') {
+			steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/smith-chem-wisc/MetaMorpheus']]])
+			}
+		}
+				stage ('Clone') {
+			steps {
+                bat 'D:\\Jenkins_Runs\\Scripts\\1_cloneScript.bat'
+			}
+		}
+		stage ('Build') {
+			steps {
+				bat 'D:\\Jenkins_Runs\\Scripts\\2_buildScript.bat'
+			}
+		}
+		stage ('Run') {
+			steps {
+				bat 'D:\\Jenkins_Runs\\Scripts\\3_runScript.bat'
+			}
+		}
+		stage ('Postprocessing') {
+			steps {
+				bat 'D:\\Jenkins_Runs\\Scripts\\4_postProcessingScript.bat'
+			}
+		}
+		stage ('Email') {
+			steps {
+				powershell 'D:\\Jenkins_Runs\\Scripts\\5_emailResults.ps1'
+			}
+		}
+	}
+}

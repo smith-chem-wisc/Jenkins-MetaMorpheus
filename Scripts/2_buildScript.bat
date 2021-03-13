@@ -1,0 +1,1 @@
+dotnet msbuild D:\Jenkins_Runs\MetaMorpheus_MasterBranch\CMD\CMD.csproj -v:minimal -p:Configuration=Release -p:UseSharedCompilation=false
