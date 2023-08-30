@@ -132,9 +132,9 @@ namespace Auditor
                                 break;
                         }
                     }
-                    else if (line.Contains("All target PSMS within 1% FDR:"))
+                    else if (line.Contains("All target PSM"))
                     {
-                        int numPsms = int.Parse(line.Replace("All target PSMS within 1% FDR:", "").Trim());
+                        int numPsms = int.Parse(line.Split(':').Last().Trim());
 
                         switch (allResultsTxtFile.Key)
                         {
@@ -165,35 +165,35 @@ namespace Auditor
                                 break;
                         }
                     }
-                    else if (line.Contains("All target protein groups within 1% FDR:")
+                    else if (line.Contains("All target protein groups")
                              && allResultsTxtFile.Key.Equals(Program.ClassicSearchLabel)
                              && taskNumberReading == 1)
                     {
-                        int numProteinGroups = int.Parse(line.Replace("All target protein groups within 1% FDR:", "").Trim());
+                        int numProteinGroups = int.Parse(line.Split(':').Last().Trim());
                         InitialSearchProteinGroups = numProteinGroups;
                     }
 
                     // crosslink search results
                     else if (line.Contains("Target inter-crosslinks within 1% FDR:"))
                     {
-                        InterlinkCsms = int.Parse(line.Replace("Target inter-crosslinks within 1% FDR:", "").Trim());
+                        InterlinkCsms = int.Parse(line.Split(':').Last().Trim());
                     }
                     else if (line.Contains("Target intra-crosslinks within 1% FDR:"))
                     {
-                        IntralinkCsms = int.Parse(line.Replace("Target intra-crosslinks within 1% FDR:", "").Trim());
+                        IntralinkCsms = int.Parse(line.Split(':').Last().Trim());
                     }
                     else if (line.Contains("Target single peptides within 1% FDR:"))
                     {
                         CrosslinkSinglePsms =
-                            int.Parse(line.Replace("Target single peptides within 1% FDR:", "").Trim());
+                            int.Parse(line.Split(':').Last().Trim());
                     }
                     else if (line.Contains("Target loop-linked peptides within 1% FDR:"))
                     {
-                        LoopCsms = int.Parse(line.Replace("Target loop-linked peptides within 1% FDR:", "").Trim());
+                        LoopCsms = int.Parse(line.Split(':').Last().Trim());
                     }
                     else if (line.Contains("Target deadend peptides within 1% FDR:"))
                     {
-                        DeadendCsms = int.Parse(line.Replace("Target deadend peptides within 1% FDR:", "").Trim());
+                        DeadendCsms = int.Parse(line.Split(':').Last().Trim());
                     }
                 }
             }

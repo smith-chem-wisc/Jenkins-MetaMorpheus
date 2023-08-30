@@ -54,11 +54,14 @@ fp.close()
 msgImage.add_header('Content-ID', '<image2>')
 msgRoot.attach(msgImage)
 
-# Send the email (this example assumes SMTP authentication is required)
+# Send the email to every address listed in the email.config (this example assumes SMTP authentication is required)
 import smtplib
 smtp = smtplib.SMTP(email_server_host, port)
 smtp.ehlo()
 smtp.starttls()
 smtp.login(email_username, email_password)
-smtp.sendmail(strFrom, strTo, msgRoot.as_string())
+for recipient in email:
+    if recipient.__eq__(email_password):
+        continue
+    smtp.sendmail(strFrom, recipient, msgRoot.as_string())
 smtp.close()

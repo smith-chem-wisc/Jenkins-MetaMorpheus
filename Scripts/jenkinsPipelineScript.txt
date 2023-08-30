@@ -28,7 +28,7 @@ pipeline {
 		}
 		stage ('Email') {
 			steps {
-				powershell 'D:\\Jenkins_Runs\\Scripts\\5_emailResults.ps1'
+				powershell 'D:\\Jenkins_Runs\\Scripts\\5_emailResults.bat'
 			}
 		}
 	}
