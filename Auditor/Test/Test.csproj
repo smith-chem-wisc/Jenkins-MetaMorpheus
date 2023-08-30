@@ -10,11 +10,12 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Test</RootNamespace>
     <AssemblyName>Test</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x64</PlatformTarget>
@@ -58,499 +59,499 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="TestData\2018-10-08-16-14-52\Task1-SearchTask\AllPeptides.psmtsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task1-SearchTask\AllPeptides.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task1-SearchTask\AllProteinGroups.tsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task1-SearchTask\AllProteinGroups.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task1-SearchTask\AllPSMs.psmtsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task1-SearchTask\AllPSMs.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task1-SearchTask\AllPSMs_FormattedForPercolator.tsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task1-SearchTask\AllPSMs_FormattedForPercolator.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task1-SearchTask\AllQuantifiedPeaks.tsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task1-SearchTask\AllQuantifiedPeaks.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task1-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task1-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task1-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task1-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task1-SearchTask\Individual File Results\SmallCalibratibleYeast.mzID">
+    <None Include="TestData\Classic_[2018-10-08_\Task1-SearchTask\Individual File Results\SmallCalibratibleYeast.mzID">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task1-SearchTask\SearchTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-08_\Task1-SearchTask\SearchTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task2-CalibrateTask\CalibrationTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-08_\Task2-CalibrateTask\CalibrationTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task2-CalibrateTask\ExperimentalDesign.tsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task2-CalibrateTask\ExperimentalDesign.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task2-CalibrateTask\SmallCalibratibleYeast-calib.mzML">
+    <None Include="TestData\Classic_[2018-10-08_\Task2-CalibrateTask\SmallCalibratibleYeast-calib.mzML">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task2-CalibrateTask\SmallCalibratibleYeast-calib.toml">
+    <None Include="TestData\Classic_[2018-10-08_\Task2-CalibrateTask\SmallCalibratibleYeast-calib.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task3-SearchTask\AllPeptides.psmtsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task3-SearchTask\AllPeptides.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task3-SearchTask\AllProteinGroups.tsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task3-SearchTask\AllProteinGroups.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task3-SearchTask\AllPSMs.psmtsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task3-SearchTask\AllPSMs.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task3-SearchTask\AllPSMs_FormattedForPercolator.tsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task3-SearchTask\AllPSMs_FormattedForPercolator.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task3-SearchTask\AllQuantifiedPeaks.tsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task3-SearchTask\AllQuantifiedPeaks.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task3-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task3-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task3-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task3-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task3-SearchTask\Individual File Results\SmallCalibratibleYeast-calib.mzID">
+    <None Include="TestData\Classic_[2018-10-08_\Task3-SearchTask\Individual File Results\SmallCalibratibleYeast-calib.mzID">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task3-SearchTask\SearchTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-08_\Task3-SearchTask\SearchTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task4-GPTMDTask\GptmdTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-08_\Task4-GPTMDTask\GptmdTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task4-GPTMDTask\GPTMD_Candidates.psmtsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task4-GPTMDTask\GPTMD_Candidates.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task5-SearchTask\AllPeptides.psmtsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task5-SearchTask\AllPeptides.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task5-SearchTask\AllProteinGroups.tsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task5-SearchTask\AllProteinGroups.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task5-SearchTask\AllPSMs.psmtsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task5-SearchTask\AllPSMs.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task5-SearchTask\AllPSMs_FormattedForPercolator.tsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task5-SearchTask\AllPSMs_FormattedForPercolator.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task5-SearchTask\AllQuantifiedPeaks.tsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task5-SearchTask\AllQuantifiedPeaks.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task5-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task5-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task5-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-08_\Task5-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task5-SearchTask\Individual File Results\SmallCalibratibleYeast-calib.mzID">
+    <None Include="TestData\Classic_[2018-10-08_\Task5-SearchTask\Individual File Results\SmallCalibratibleYeast-calib.mzID">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-14-52\Task5-SearchTask\SearchTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-08_\Task5-SearchTask\SearchTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task1-SearchTask\AllPeptides.psmtsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task1-SearchTask\AllPeptides.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task1-SearchTask\AllProteinGroups.tsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task1-SearchTask\AllProteinGroups.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task1-SearchTask\AllPSMs.psmtsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task1-SearchTask\AllPSMs.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task1-SearchTask\AllPSMs_FormattedForPercolator.tsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task1-SearchTask\AllPSMs_FormattedForPercolator.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task1-SearchTask\AllQuantifiedPeaks.tsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task1-SearchTask\AllQuantifiedPeaks.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task1-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task1-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task1-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task1-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task1-SearchTask\Individual File Results\SmallCalibratibleYeast.mzID">
+    <None Include="TestData\Classic_[2018-10-09_\Task1-SearchTask\Individual File Results\SmallCalibratibleYeast.mzID">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task1-SearchTask\SearchTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-09_\Task1-SearchTask\SearchTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task2-CalibrateTask\CalibrationTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-09_\Task2-CalibrateTask\CalibrationTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task2-CalibrateTask\ExperimentalDesign.tsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task2-CalibrateTask\ExperimentalDesign.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task2-CalibrateTask\SmallCalibratibleYeast-calib.mzML">
+    <None Include="TestData\Classic_[2018-10-09_\Task2-CalibrateTask\SmallCalibratibleYeast-calib.mzML">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task2-CalibrateTask\SmallCalibratibleYeast-calib.toml">
+    <None Include="TestData\Classic_[2018-10-09_\Task2-CalibrateTask\SmallCalibratibleYeast-calib.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task3-SearchTask\AllPeptides.psmtsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task3-SearchTask\AllPeptides.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task3-SearchTask\AllProteinGroups.tsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task3-SearchTask\AllProteinGroups.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task3-SearchTask\AllPSMs.psmtsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task3-SearchTask\AllPSMs.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task3-SearchTask\AllPSMs_FormattedForPercolator.tsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task3-SearchTask\AllPSMs_FormattedForPercolator.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task3-SearchTask\AllQuantifiedPeaks.tsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task3-SearchTask\AllQuantifiedPeaks.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task3-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task3-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task3-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task3-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task3-SearchTask\Individual File Results\SmallCalibratibleYeast-calib.mzID">
+    <None Include="TestData\Classic_[2018-10-09_\Task3-SearchTask\Individual File Results\SmallCalibratibleYeast-calib.mzID">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task3-SearchTask\SearchTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-09_\Task3-SearchTask\SearchTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task4-GPTMDTask\GptmdTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-09_\Task4-GPTMDTask\GptmdTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task4-GPTMDTask\GPTMD_Candidates.psmtsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task4-GPTMDTask\GPTMD_Candidates.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task5-SearchTask\AllPeptides.psmtsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task5-SearchTask\AllPeptides.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task5-SearchTask\AllProteinGroups.tsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task5-SearchTask\AllProteinGroups.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task5-SearchTask\AllPSMs.psmtsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task5-SearchTask\AllPSMs.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task5-SearchTask\AllPSMs_FormattedForPercolator.tsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task5-SearchTask\AllPSMs_FormattedForPercolator.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task5-SearchTask\AllQuantifiedPeaks.tsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task5-SearchTask\AllQuantifiedPeaks.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task5-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task5-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task5-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-09_\Task5-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task5-SearchTask\Individual File Results\SmallCalibratibleYeast-calib.mzID">
+    <None Include="TestData\Classic_[2018-10-09_\Task5-SearchTask\Individual File Results\SmallCalibratibleYeast-calib.mzID">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-13\Task5-SearchTask\SearchTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-09_\Task5-SearchTask\SearchTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task1-SearchTask\AllPeptides.psmtsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task1-SearchTask\AllPeptides.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task1-SearchTask\AllProteinGroups.tsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task1-SearchTask\AllProteinGroups.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task1-SearchTask\AllPSMs.psmtsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task1-SearchTask\AllPSMs.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task1-SearchTask\AllPSMs_FormattedForPercolator.tsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task1-SearchTask\AllPSMs_FormattedForPercolator.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task1-SearchTask\AllQuantifiedPeaks.tsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task1-SearchTask\AllQuantifiedPeaks.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task1-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task1-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task1-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task1-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task1-SearchTask\Individual File Results\SmallCalibratibleYeast.mzID">
+    <None Include="TestData\Classic_[2018-10-10_\Task1-SearchTask\Individual File Results\SmallCalibratibleYeast.mzID">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task1-SearchTask\SearchTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-10_\Task1-SearchTask\SearchTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task2-CalibrateTask\CalibrationTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-10_\Task2-CalibrateTask\CalibrationTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task2-CalibrateTask\ExperimentalDesign.tsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task2-CalibrateTask\ExperimentalDesign.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task2-CalibrateTask\SmallCalibratibleYeast-calib.mzML">
+    <None Include="TestData\Classic_[2018-10-10_\Task2-CalibrateTask\SmallCalibratibleYeast-calib.mzML">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task2-CalibrateTask\SmallCalibratibleYeast-calib.toml">
+    <None Include="TestData\Classic_[2018-10-10_\Task2-CalibrateTask\SmallCalibratibleYeast-calib.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task3-SearchTask\AllPeptides.psmtsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task3-SearchTask\AllPeptides.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task3-SearchTask\AllProteinGroups.tsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task3-SearchTask\AllProteinGroups.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task3-SearchTask\AllPSMs.psmtsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task3-SearchTask\AllPSMs.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task3-SearchTask\AllPSMs_FormattedForPercolator.tsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task3-SearchTask\AllPSMs_FormattedForPercolator.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task3-SearchTask\AllQuantifiedPeaks.tsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task3-SearchTask\AllQuantifiedPeaks.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task3-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task3-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task3-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task3-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task3-SearchTask\Individual File Results\SmallCalibratibleYeast-calib.mzID">
+    <None Include="TestData\Classic_[2018-10-10_\Task3-SearchTask\Individual File Results\SmallCalibratibleYeast-calib.mzID">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task3-SearchTask\SearchTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-10_\Task3-SearchTask\SearchTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task4-GPTMDTask\GptmdTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-10_\Task4-GPTMDTask\GptmdTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task4-GPTMDTask\GPTMD_Candidates.psmtsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task4-GPTMDTask\GPTMD_Candidates.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task5-SearchTask\AllPeptides.psmtsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task5-SearchTask\AllPeptides.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task5-SearchTask\AllProteinGroups.tsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task5-SearchTask\AllProteinGroups.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task5-SearchTask\AllPSMs.psmtsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task5-SearchTask\AllPSMs.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task5-SearchTask\AllPSMs_FormattedForPercolator.tsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task5-SearchTask\AllPSMs_FormattedForPercolator.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task5-SearchTask\AllQuantifiedPeaks.tsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task5-SearchTask\AllQuantifiedPeaks.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task5-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task5-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task5-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-10_\Task5-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task5-SearchTask\Individual File Results\SmallCalibratibleYeast-calib.mzID">
+    <None Include="TestData\Classic_[2018-10-10_\Task5-SearchTask\Individual File Results\SmallCalibratibleYeast-calib.mzID">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-28\Task5-SearchTask\SearchTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-10_\Task5-SearchTask\SearchTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task1-SearchTask\AllPeptides.psmtsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task1-SearchTask\AllPeptides.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task1-SearchTask\AllProteinGroups.tsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task1-SearchTask\AllProteinGroups.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task1-SearchTask\AllPSMs.psmtsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task1-SearchTask\AllPSMs.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task1-SearchTask\AllPSMs_FormattedForPercolator.tsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task1-SearchTask\AllPSMs_FormattedForPercolator.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task1-SearchTask\AllQuantifiedPeaks.tsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task1-SearchTask\AllQuantifiedPeaks.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task1-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task1-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task1-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task1-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task1-SearchTask\Individual File Results\SmallCalibratibleYeast.mzID">
+    <None Include="TestData\Classic_[2018-10-11_\Task1-SearchTask\Individual File Results\SmallCalibratibleYeast.mzID">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task1-SearchTask\SearchTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-11_\Task1-SearchTask\SearchTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task2-CalibrateTask\CalibrationTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-11_\Task2-CalibrateTask\CalibrationTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task2-CalibrateTask\ExperimentalDesign.tsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task2-CalibrateTask\ExperimentalDesign.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task2-CalibrateTask\SmallCalibratibleYeast-calib.mzML">
+    <None Include="TestData\Classic_[2018-10-11_\Task2-CalibrateTask\SmallCalibratibleYeast-calib.mzML">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task2-CalibrateTask\SmallCalibratibleYeast-calib.toml">
+    <None Include="TestData\Classic_[2018-10-11_\Task2-CalibrateTask\SmallCalibratibleYeast-calib.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task3-SearchTask\AllPeptides.psmtsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task3-SearchTask\AllPeptides.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task3-SearchTask\AllProteinGroups.tsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task3-SearchTask\AllProteinGroups.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task3-SearchTask\AllPSMs.psmtsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task3-SearchTask\AllPSMs.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task3-SearchTask\AllPSMs_FormattedForPercolator.tsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task3-SearchTask\AllPSMs_FormattedForPercolator.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task3-SearchTask\AllQuantifiedPeaks.tsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task3-SearchTask\AllQuantifiedPeaks.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task3-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task3-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task3-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task3-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task3-SearchTask\Individual File Results\SmallCalibratibleYeast-calib.mzID">
+    <None Include="TestData\Classic_[2018-10-11_\Task3-SearchTask\Individual File Results\SmallCalibratibleYeast-calib.mzID">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task3-SearchTask\SearchTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-11_\Task3-SearchTask\SearchTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task4-GPTMDTask\GptmdTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-11_\Task4-GPTMDTask\GptmdTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task4-GPTMDTask\GPTMD_Candidates.psmtsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task4-GPTMDTask\GPTMD_Candidates.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task5-SearchTask\AllPeptides.psmtsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task5-SearchTask\AllPeptides.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task5-SearchTask\AllProteinGroups.tsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task5-SearchTask\AllProteinGroups.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task5-SearchTask\AllPSMs.psmtsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task5-SearchTask\AllPSMs.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task5-SearchTask\AllPSMs_FormattedForPercolator.tsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task5-SearchTask\AllPSMs_FormattedForPercolator.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task5-SearchTask\AllQuantifiedPeaks.tsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task5-SearchTask\AllQuantifiedPeaks.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task5-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task5-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task5-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-11_\Task5-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task5-SearchTask\Individual File Results\SmallCalibratibleYeast-calib.mzID">
+    <None Include="TestData\Classic_[2018-10-11_\Task5-SearchTask\Individual File Results\SmallCalibratibleYeast-calib.mzID">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-40\Task5-SearchTask\SearchTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-11_\Task5-SearchTask\SearchTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task1-SearchTask\AllPeptides.psmtsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task1-SearchTask\AllPeptides.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task1-SearchTask\AllProteinGroups.tsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task1-SearchTask\AllProteinGroups.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task1-SearchTask\AllPSMs.psmtsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task1-SearchTask\AllPSMs.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task1-SearchTask\AllPSMs_FormattedForPercolator.tsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task1-SearchTask\AllPSMs_FormattedForPercolator.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task1-SearchTask\AllQuantifiedPeaks.tsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task1-SearchTask\AllQuantifiedPeaks.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task1-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task1-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task1-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task1-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task1-SearchTask\Individual File Results\SmallCalibratibleYeast.mzID">
+    <None Include="TestData\Classic_[2018-10-12_\Task1-SearchTask\Individual File Results\SmallCalibratibleYeast.mzID">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task1-SearchTask\SearchTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-12_\Task1-SearchTask\SearchTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task2-CalibrateTask\CalibrationTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-12_\Task2-CalibrateTask\CalibrationTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task2-CalibrateTask\ExperimentalDesign.tsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task2-CalibrateTask\ExperimentalDesign.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task2-CalibrateTask\SmallCalibratibleYeast-calib.mzML">
+    <None Include="TestData\Classic_[2018-10-12_\Task2-CalibrateTask\SmallCalibratibleYeast-calib.mzML">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task2-CalibrateTask\SmallCalibratibleYeast-calib.toml">
+    <None Include="TestData\Classic_[2018-10-12_\Task2-CalibrateTask\SmallCalibratibleYeast-calib.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task3-SearchTask\AllPeptides.psmtsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task3-SearchTask\AllPeptides.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task3-SearchTask\AllProteinGroups.tsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task3-SearchTask\AllProteinGroups.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task3-SearchTask\AllPSMs.psmtsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task3-SearchTask\AllPSMs.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task3-SearchTask\AllPSMs_FormattedForPercolator.tsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task3-SearchTask\AllPSMs_FormattedForPercolator.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task3-SearchTask\AllQuantifiedPeaks.tsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task3-SearchTask\AllQuantifiedPeaks.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task3-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task3-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task3-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task3-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task3-SearchTask\Individual File Results\SmallCalibratibleYeast-calib.mzID">
+    <None Include="TestData\Classic_[2018-10-12_\Task3-SearchTask\Individual File Results\SmallCalibratibleYeast-calib.mzID">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task3-SearchTask\SearchTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-12_\Task3-SearchTask\SearchTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task4-GPTMDTask\GptmdTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-12_\Task4-GPTMDTask\GptmdTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task4-GPTMDTask\GPTMD_Candidates.psmtsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task4-GPTMDTask\GPTMD_Candidates.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task5-SearchTask\AllPeptides.psmtsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task5-SearchTask\AllPeptides.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task5-SearchTask\AllProteinGroups.tsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task5-SearchTask\AllProteinGroups.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task5-SearchTask\AllPSMs.psmtsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task5-SearchTask\AllPSMs.psmtsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task5-SearchTask\AllPSMs_FormattedForPercolator.tsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task5-SearchTask\AllPSMs_FormattedForPercolator.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task5-SearchTask\AllQuantifiedPeaks.tsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task5-SearchTask\AllQuantifiedPeaks.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task5-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task5-SearchTask\AllQuantifiedPeptides_BaseSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task5-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
+    <None Include="TestData\Classic_[2018-10-12_\Task5-SearchTask\AllQuantifiedPeptides_FullSequences.tsv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task5-SearchTask\Individual File Results\SmallCalibratibleYeast-calib.mzID">
+    <None Include="TestData\Classic_[2018-10-12_\Task5-SearchTask\Individual File Results\SmallCalibratibleYeast-calib.mzID">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="TestData\2018-10-08-16-17-51\Task5-SearchTask\SearchTaskconfig.toml">
+    <None Include="TestData\Classic_[2018-10-12_\Task5-SearchTask\SearchTaskconfig.toml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -564,184 +565,184 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TestData\2018-10-08-16-14-52\allResults.txt">
+    <Content Include="TestData\Classic_[2018-10-08_\allResults.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-14-52\Task1-SearchTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-08_\Task1-SearchTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-14-52\Task1-SearchTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-08_\Task1-SearchTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-14-52\Task2-CalibrateTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-08_\Task2-CalibrateTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-14-52\Task2-CalibrateTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-08_\Task2-CalibrateTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-14-52\Task3-SearchTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-08_\Task3-SearchTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-14-52\Task3-SearchTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-08_\Task3-SearchTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-14-52\Task4-GPTMDTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-08_\Task4-GPTMDTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-14-52\Task4-GPTMDTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-08_\Task4-GPTMDTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-14-52\Task4-GPTMDTask\smalldbGPTMD.xml">
+    <Content Include="TestData\Classic_[2018-10-08_\Task4-GPTMDTask\smalldbGPTMD.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-14-52\Task5-SearchTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-08_\Task5-SearchTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-14-52\Task5-SearchTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-08_\Task5-SearchTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-13\allResults.txt">
+    <Content Include="TestData\Classic_[2018-10-09_\allResults.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-13\Task1-SearchTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-09_\Task1-SearchTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-13\Task1-SearchTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-09_\Task1-SearchTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-13\Task2-CalibrateTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-09_\Task2-CalibrateTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-13\Task2-CalibrateTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-09_\Task2-CalibrateTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-13\Task3-SearchTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-09_\Task3-SearchTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-13\Task3-SearchTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-09_\Task3-SearchTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-13\Task4-GPTMDTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-09_\Task4-GPTMDTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-13\Task4-GPTMDTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-09_\Task4-GPTMDTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-13\Task4-GPTMDTask\smalldbGPTMD.xml">
+    <Content Include="TestData\Classic_[2018-10-09_\Task4-GPTMDTask\smalldbGPTMD.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-13\Task5-SearchTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-09_\Task5-SearchTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-13\Task5-SearchTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-09_\Task5-SearchTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-28\allResults.txt">
+    <Content Include="TestData\Classic_[2018-10-10_\allResults.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-28\Task1-SearchTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-10_\Task1-SearchTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-28\Task1-SearchTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-10_\Task1-SearchTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-28\Task2-CalibrateTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-10_\Task2-CalibrateTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-28\Task2-CalibrateTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-10_\Task2-CalibrateTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-28\Task3-SearchTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-10_\Task3-SearchTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-28\Task3-SearchTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-10_\Task3-SearchTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-28\Task4-GPTMDTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-10_\Task4-GPTMDTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-28\Task4-GPTMDTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-10_\Task4-GPTMDTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-28\Task4-GPTMDTask\smalldbGPTMD.xml">
+    <Content Include="TestData\Classic_[2018-10-10_\Task4-GPTMDTask\smalldbGPTMD.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-28\Task5-SearchTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-10_\Task5-SearchTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-28\Task5-SearchTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-10_\Task5-SearchTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-40\allResults.txt">
+    <Content Include="TestData\Classic_[2018-10-11_\allResults.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-40\Task1-SearchTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-11_\Task1-SearchTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-40\Task1-SearchTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-11_\Task1-SearchTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-40\Task2-CalibrateTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-11_\Task2-CalibrateTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-40\Task2-CalibrateTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-11_\Task2-CalibrateTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-40\Task3-SearchTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-11_\Task3-SearchTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-40\Task3-SearchTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-11_\Task3-SearchTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-40\Task4-GPTMDTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-11_\Task4-GPTMDTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-40\Task4-GPTMDTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-11_\Task4-GPTMDTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-40\Task4-GPTMDTask\smalldbGPTMD.xml">
+    <Content Include="TestData\Classic_[2018-10-11_\Task4-GPTMDTask\smalldbGPTMD.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-40\Task5-SearchTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-11_\Task5-SearchTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-40\Task5-SearchTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-11_\Task5-SearchTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-51\allResults.txt">
+    <Content Include="TestData\Classic_[2018-10-12_\allResults.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-51\Task1-SearchTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-12_\Task1-SearchTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-51\Task1-SearchTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-12_\Task1-SearchTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-51\Task2-CalibrateTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-12_\Task2-CalibrateTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-51\Task2-CalibrateTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-12_\Task2-CalibrateTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-51\Task3-SearchTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-12_\Task3-SearchTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-51\Task3-SearchTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-12_\Task3-SearchTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-51\Task4-GPTMDTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-12_\Task4-GPTMDTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-51\Task4-GPTMDTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-12_\Task4-GPTMDTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-51\Task4-GPTMDTask\smalldbGPTMD.xml">
+    <Content Include="TestData\Classic_[2018-10-12_\Task4-GPTMDTask\smalldbGPTMD.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-51\Task5-SearchTask\prose.txt">
+    <Content Include="TestData\Classic_[2018-10-12_\Task5-SearchTask\prose.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\2018-10-08-16-17-51\Task5-SearchTask\results.txt">
+    <Content Include="TestData\Classic_[2018-10-12_\Task5-SearchTask\results.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
