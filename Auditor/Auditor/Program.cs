@@ -100,6 +100,16 @@ namespace Auditor
                     .GetDirectories()
                     .OrderByDescending(v => v.CreationTime).ToList();
 
+                // delete old database index files
+                var indexedDatabaseDirectoryPathClassic = Path.Combine(Path.GetDirectoryName(p.Object.InputFolder.ToString()), "DataAndRunSettings", "Classic", "DatabaseIndex");
+                var indexedDatabaseDirectoryPathNonSpecific = Path.Combine(Path.GetDirectoryName(p.Object.InputFolder.ToString()), "DataAndRunSettings", "Nonspecific", "DatabaseIndex");
+                directoriesToPotentiallyDelete.AddRange( new DirectoryInfo(indexedDatabaseDirectoryPathClassic)
+                    .GetDirectories()
+                    .OrderByDescending(v => v.CreationTime).ToList());
+                directoriesToPotentiallyDelete.AddRange(new DirectoryInfo(indexedDatabaseDirectoryPathNonSpecific)
+                    .GetDirectories()
+                    .OrderByDescending(v => v.CreationTime).ToList());
+
                 DateTime dateToStartDeletingAt = new DateTime(2018, 12, 9);
 
                 directoriesToPotentiallyDelete = directoriesToPotentiallyDelete
