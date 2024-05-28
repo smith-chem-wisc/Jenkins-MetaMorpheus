@@ -15,7 +15,7 @@ D:\Jenkins_Runs\MetaMorpheus_MasterBranch\MetaMorpheus\CMD\bin\Release\net6.0\cm
 
 D:\Jenkins_Runs\MetaMorpheus_MasterBranch\MetaMorpheus\CMD\bin\Release\net6.0\cmd.exe -t D:\Jenkins_Runs\TestFiles\DataAndRunSettings\TopDown\Task4-SearchTaskconfig.toml D:\Jenkins_Runs\TestFiles\DataAndRunSettings\TopDown\Task1-calibrateTaskconfig.toml D:\Jenkins_Runs\TestFiles\DataAndRunSettings\TopDown\Task4-SearchTaskconfig.toml D:\Jenkins_Runs\TestFiles\DataAndRunSettings\TopDown\Task2-AveragingTaskconfig.toml D:\Jenkins_Runs\TestFiles\DataAndRunSettings\TopDown\Task4-SearchTaskconfig.toml D:\Jenkins_Runs\TestFiles\DataAndRunSettings\TopDown\Task3-GPTMDTaskconfig.toml D:\Jenkins_Runs\TestFiles\DataAndRunSettings\TopDown\Task4-SearchTaskconfig.toml -s D:\Jenkins_Runs\TestFiles\DataAndRunSettings\TopDown\02-17-20_jurkat_td_rep2_fract4.raw D:\Jenkins_Runs\TestFiles\DataAndRunSettings\TopDown\02-18-20_jurkat_td_rep2_fract5.raw -d D:\Jenkins_Runs\TestFiles\DataAndRunSettings\TopDown\uniprotkb_human_proteome_AND_reviewed_t_2024_03_22.xml -o D:\Jenkins_Runs\TestFiles\Results\TopDown_[%mydate%_%mytime%]
 
-
+D:\Jenkins_Runs\MetaMorpheus_MasterBranch\MetaMorpheus\CMD\bin\Release\net6.0\cmd.exe -t D:\Jenkins_Runs\TestFiles\DataAndRunSettings\Glyco\Task1-GlycoSearchTaskconfig.toml -s D:\Jenkins_Runs\TestFiles\DataAndRunSettings\Glyco\2019_09_16_StcEmix_35trig_EThcD25_rep1.raw -d D:\Jenkins_Runs\TestFiles\DataAndRunSettings\Glyco\MucinBackground_4mucins_FASTA.fasta -o D:\Jenkins_Runs\TestFiles\Results\Glyco_[%mydate%_%mytime%]
 
 
 

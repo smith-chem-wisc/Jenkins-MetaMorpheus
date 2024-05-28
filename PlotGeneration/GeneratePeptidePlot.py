@@ -4,20 +4,19 @@ import pandas
 # read the csv
 df = pandas.read_csv("D:/Jenkins_Runs/Results/ProcessedResults.csv")
 
-####### Generate the Top Down Plot #######
-# label the axis
+# label the axes
 xLabel = "Date"
-yLabel = "PSMs"
+yLabel = "Peptides"
 
+pyplot.title('Bottom-Up Peptides')
 pyplot.xlabel(xLabel)
 pyplot.ylabel(yLabel)
-pyplot.title('Other Search Task PSM Results')
 
 # generate the plot
 x = df[xLabel]
-y1 = df["Semispecific PSMs"]
-y2 = df["Modern Search PSMs"]
-y3 = df["Nonspecific PSMs"]
+y1 = df["Initial Search Peptides"]
+y2 = df["Post-calibration Peptides"]
+y3 = df["Post-GPTMD Peptides"]
 
 b1 = pyplot.plot(x, y1, color='blue')
 b2 = pyplot.plot(x, y2, color='orange')
@@ -33,7 +32,7 @@ ymin, ymax = pyplot.ylim()
 pyplot.ylim(ymin - 1000, ymax + 1000)
 
 # set up legend
-pyplot.legend((b1[0], b2[0], b3[0]), ('Semi-Specific Search', 'Modern Search', 'Non-Specific Search'), loc=1, bbox_to_anchor=(1.1, 1.18))
+pyplot.legend((b1[0], b2[0], b3[0]), ('Initial', 'Post-Calibration', 'Post-GPTMD'), loc=1, bbox_to_anchor=(1.1, 1.18))
 
 # label data points
 for i, txt in enumerate(y1):
@@ -44,4 +43,4 @@ for i, txt in enumerate(y3):
     pyplot.annotate(txt, (x[i],y3[i]), fontsize=6)
 
 # save the plot
-pyplot.savefig('D:/Jenkins_Runs/Results/PSMReport_SemiNonModern.png')
+pyplot.savefig('D:/Jenkins_Runs/Results/PeptideReport.png')

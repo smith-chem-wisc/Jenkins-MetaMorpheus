@@ -35,19 +35,22 @@ msgAlternative.attach(msgText)
 # HTML content for the email with images displayed in a grid
 html_content = '''
 <b>Daily Jenkins Report</b><br>
-<table style="width:100%; max-width:640px;">
+<table style="width:100%; max-width:640px; border-collapse: separate; border-spacing: 10px;">
   <tr>
-    <td><img src="cid:image1" style="width:50%;" /></td>
-    <td><img src="cid:image2" style="width:50%;" /></td>
+    <td style="padding: 5px;"><img src="cid:image1" style="width:100%; border:1px solid #ddd;" /></td>
+    <td style="padding: 5px;"><img src="cid:image2" style="width:100%; border:1px solid #ddd;" /></td>
+    <td style="padding: 5px;"><img src="cid:image3" style="width:100%; border:1px solid #ddd;" /></td>
   </tr>
   <tr>
-    <td><img src="cid:image3" style="width:50%;" /></td>
-    <td><img src="cid:image4" style="width:50%;" /></td>
+    <td style="padding: 5px;"><img src="cid:image4" style="width:100%; border:1px solid #ddd;" /></td>
+    <td style="padding: 5px;"><img src="cid:image5" style="width:100%; border:1px solid #ddd;" /></td>
+    <td style="padding: 5px;"><img src="cid:image6" style="width:100%; border:1px solid #ddd;" /></td>
   </tr>
   <tr>
-    <td><img src="cid:image5" style="width:50%;" /></td>
-    <td><img src="cid:image6" style="width:50%;" /></td>
-    <td><img src="cid:image7" style="width:50%;" /></td>
+    <td style="padding: 5px;"><img src="cid:image7" style="width:100%; border:1px solid #ddd;" /></td>
+    <td style="padding: 5px;"><img src="cid:image8" style="width:100%; border:1px solid #ddd;" /></td>
+    <td style="padding: 5px;"><img src="cid:image9" style="width:100%; border:1px solid #ddd;" /></td>
+    <td style="padding: 5px;"><img src="cid:image10" style="width:100%; border:1px solid #ddd;" /></td>
   </tr>
 </table><br>
 '''
@@ -57,11 +60,14 @@ msgAlternative.attach(msgText)
 # List of images to attach
 image_paths = [
     'D:/Jenkins_Runs/Results/PSMReport.png',
+    'D:/Jenkins_Runs/Results/PeptideReport.png',
     'D:/Jenkins_Runs/Results/TaskTimeReport.png',
     'D:/Jenkins_Runs/Results/PSMReport_TopDown.png',
+    'D:/Jenkins_Runs/Results/ProteoformReport_TopDown.png',
     'D:/Jenkins_Runs/Results/TaskTimeReport_TopDown.png',
     'D:/Jenkins_Runs/Results/PSMReport_CrossLink.png',
     'D:/Jenkins_Runs/Results/PSMReport_SemiNonModern.png',
+    'D:/Jenkins_Runs/Results/PeptideReport_SemiNonModernXL.png',
     'D:/Jenkins_Runs/Results/TaskTimeReport_SemiNonModernXL.png'
 ]
 

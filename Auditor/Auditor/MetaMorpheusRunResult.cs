@@ -15,20 +15,31 @@ namespace Auditor
 
         // PSM results
         public int InitialSearchTargetPsms { get; private set; }
+        public int InitialSearchTargetPeptides { get; private set; }
         public int PostCalibrationTargetPsms { get; private set; }
+        public int PostCalibrationTargetPeptides { get; private set; }
         public int PostGptmdTargetPsms { get; private set; }
+        public int PostGptmdTargetPeptides { get; private set; }
         public int SemiSpecificPsms { get; private set; }
+        public int SemiSpecificPeptides { get; private set; }
         public int NonSpecificPsms { get; private set; }
+        public int NonSpecificPeptides { get; private set; }
         public int InterlinkCsms { get; private set; }
         public int IntralinkCsms { get; private set; }
         public int LoopCsms { get; private set; }
         public int DeadendCsms { get; private set; }
         public int CrosslinkSinglePsms { get; private set; }
+        public int CrosslinkSinglePeptides { get; private set; }
         public int ModernSearchPsms { get; private set; }
+        public int ModernSearchPeptides { get; private set; }
         public double TopDownInitialSearchPsms { get; private set; }
+        public double TopDownInitialSearchProteoforms { get; private set; }
         public double TopDownPostCalibrationSearchPsms { get; private set; }
+        public double TopDownPostCalibrationSearchProteoforms { get; private set; }
         public double TopDownPostAveragingSearchPsms { get; private set; }
+        public double TopDownPostAveragingSearchProteoforms { get; private set; }
         public double TopDownPostGPTMDSearchPsms { get; private set; }
+        public double TopDownPostGPTMDSearchProteoforms { get; private set; }
 
         // time to run each of the tasks
         public double InitialSearchTimeInSeconds { get; private set; }
@@ -223,6 +234,55 @@ namespace Auditor
                                 break;
                         }
                     }
+                    else if (line.Contains("All target pept") || line.Contains("All target proteo"))
+                    {
+                        int numPsms = int.Parse(line.Split(':').Last().Trim());
+
+                        switch (allResultsTxtFile.Key)
+                        {
+                            case Program.ClassicSearchLabel:
+                                switch (taskNumberReading)
+                                {
+                                    case 1:
+                                        InitialSearchTargetPeptides = numPsms;
+                                        break;
+                                    case 3:
+                                        PostCalibrationTargetPeptides = numPsms;
+                                        break;
+                                    case 5:
+                                        PostGptmdTargetPeptides = numPsms;
+                                        break;
+                                }
+                                break;
+                            case Program.ModernSearchLabel:
+                                ModernSearchPeptides = numPsms;
+                                break;
+                            case Program.NonspecificSearchLabel:
+                                NonSpecificPeptides = numPsms;
+                                break;
+                            case Program.SemiSpecificSearchLabel:
+                                SemiSpecificPeptides = numPsms;
+                                break;
+                            case Program.TopDownSearchLabel:
+                                switch (taskNumberReading)
+                                {
+                                    case 1:
+                                        TopDownInitialSearchProteoforms = numPsms;
+                                        break;
+                                    case 3:
+                                        TopDownPostCalibrationSearchProteoforms = numPsms;
+                                        break;
+                                    //case 5:
+                                    case 4: // TODO: After avraging is in command line, change these numbers
+                                        TopDownPostAveragingSearchProteoforms = numPsms;
+                                        break;
+                                    case 6:
+                                        TopDownPostGPTMDSearchProteoforms = numPsms;
+                                        break;
+                                }
+                                break;
+                        }
+                    }
                     else if (line.Contains("All target protein groups")
                              && allResultsTxtFile.Key.Equals(Program.ClassicSearchLabel)
                              && taskNumberReading == 1)
@@ -267,8 +327,11 @@ namespace Auditor
                 "GPTMD Time," +
                 "Post-GPTMD Search Time," +
                 "Initial Search PSMs," +
+                "Initial Search Peptides," +
                 "Post-calibration PSMs," +
+                "Post-calibration Peptides," +
                 "Post-GPTMD PSMs," +
+                "Post-GPTMD Peptides," +
                 "Initial Search Protein Groups," +
 
                 "TopDown Initial Search Time," +
@@ -279,22 +342,30 @@ namespace Auditor
                 "TopDown GPTMD Time," +
                 "TopDown Post-GPTMD Search Time," +
                 "TopDown Initial PrSMs," +
+                "TopDown Initial Proteoforms," +
                 "TopDown Post-calibration PrSMs," +
+                "TopDown Post-calibration Proteoforms," +
                 "TopDown Post-averaging PrSMs," +
+                "TopDown Post-averaging Proteoforms," +
                 "TopDown Post-GPTMD PrSMs," +
+                "TopDown Post-GPTMD Proteoforms," +
 
                 "Semispecific Search Time," +
                 "Nonspecific Search Time," +
                 "XL Search Time," +
                 "Modern Search Time," +
                 "Semispecific PSMs," +
+                "Semispecific Peptides," +
                 "Nonspecific PSMs," +
+                "Nonspecific Peptides," +
                 "Interlink CSMs," +
                 "Intralink CSMs," +
                 "Loop CSMs," +
                 "Deadend CSMs," +
                 "Crosslink Single PSMs," +
-                "Modern Search PSMs,";
+                "Crosslink Single Peptides," +
+                "Modern Search PSMs," +
+                "Modern Search Peptides,";
         }
 
         public override string ToString()
@@ -306,8 +377,11 @@ namespace Auditor
                  + Math.Round(GptmdTimeInSeconds / 60.0, 2) + ","
                  + Math.Round(PostGptmdSearchTimeInSeconds / 60.0, 2) + ","
                  + InitialSearchTargetPsms + ","
+                 + InitialSearchTargetPeptides + ","
                  + PostCalibrationTargetPsms + ","
+                 + PostCalibrationTargetPeptides + ","
                  + PostGptmdTargetPsms + ","
+                 + PostGptmdTargetPeptides + ","
                  + InitialSearchProteinGroups + ","
                  + Math.Round(TopDownInitialSearchTimeInSeconds / 60.0, 2) + ","
                  + Math.Round(TopDownCalibrationTimeInSeconds / 60.0, 2) + ","
@@ -317,21 +391,29 @@ namespace Auditor
                  + Math.Round(TopDownGptmdTimeInSeconds / 60.0, 2) + ","
                  + Math.Round(TopDownPostGPTMDSearchTimeInSeconds / 60.0, 2) + ","
                  + TopDownInitialSearchPsms + ","
+                 + TopDownInitialSearchProteoforms + ","
                  + TopDownPostCalibrationSearchPsms + ","
+                 + TopDownPostCalibrationSearchProteoforms + ","
                  + TopDownPostAveragingSearchPsms + ","
+                 + TopDownPostAveragingSearchProteoforms + ","
                  + TopDownPostGPTMDSearchPsms + ","
+                 + TopDownPostGPTMDSearchProteoforms + ","
                  + Math.Round(SemiSpecificSearchTimeInSeconds / 60.0, 2) + ","
                  + Math.Round(NonSpecificSearchTimeInSeconds / 60.0, 2) + ","
                  + Math.Round(CrosslinkSearchTimeInSeconds / 60.0, 2) + ","
                  + Math.Round(ModernSearchTimeInSeconds / 60.0, 2) + ","
                  + SemiSpecificPsms + ","
+                 + SemiSpecificPeptides + ","
                  + NonSpecificPsms + ","
+                 + NonSpecificPeptides + ","
                  + InterlinkCsms + ","
                  + IntralinkCsms + ","
                  + LoopCsms + ","
                  + DeadendCsms + ","
                  + CrosslinkSinglePsms + ","
-                 + ModernSearchPsms;
+                 + CrosslinkSinglePeptides + ","
+                 + ModernSearchPsms + ","
+                 + ModernSearchPeptides;
         }
     }
 }
