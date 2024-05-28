@@ -35,22 +35,22 @@ msgAlternative.attach(msgText)
 # HTML content for the email with images displayed in a grid
 html_content = '''
 <b>Daily Jenkins Report</b><br>
-<table style="width:100%; max-width:640px; border-collapse: collapse; text-align: center;">
-  <tr>
-    <td style="width:33%; padding: 5px;"><img src="cid:image1" style="width:100%; display: block; margin: auto;" /></td>
-    <td style="width:33%; padding: 5px;"><img src="cid:image2" style="width:100%; display: block; margin: auto;" /></td>
-    <td style="width:33%; padding: 5px;"><img src="cid:image3" style="width:100%; display: block; margin: auto;" /></td>
+<table style="width:100%; max-width:640px; border-spacing: 10px; border-collapse: separate;">
+<tr>
+    <td style="width:33.33%;"><img src="cid:image1" style="width:100%;" /></td>
+    <td style="width:33.33%;"><img src="cid:image2" style="width:100%;" /></td>
+    <td style="width:33.33%;"><img src="cid:image3" style="width:100%;" /></td>
   </tr>
   <tr>
-    <td style="width:33%; padding: 5px;"><img src="cid:image4" style="width:100%; display: block; margin: auto;" /></td>
-    <td style="width:33%; padding: 5px;"><img src="cid:image5" style="width:100%; display: block; margin: auto;" /></td>
-    <td style="width:33%; padding: 5px;"><img src="cid:image6" style="width:100%; display: block; margin: auto;" /></td>
+    <td style="width:33.33%;"><img src="cid:image4" style="width:100%;" /></td>
+    <td style="width:33.33%;"><img src="cid:image5" style="width:100%;" /></td>
+    <td style="width:33.33%;"><img src="cid:image6" style="width:100%;" /></td>
   </tr>
   <tr>
-    <td style="width:25%; padding: 5px;"><img src="cid:image7" style="width:100%; display: block; margin: auto;" /></td>
-    <td style="width:25%; padding: 5px;"><img src="cid:image8" style="width:100%; display: block; margin: auto;" /></td>
-    <td style="width:25%; padding: 5px;"><img src="cid:image9" style="width:100%; display: block; margin: auto;" /></td>
-    <td style="width:25%; padding: 5px;"><img src="cid:image10" style="width:100%; display: block; margin: auto;" /></td>
+    <td style="width:25%;"><img src="cid:image7" style="width:100%;" /></td>
+    <td style="width:25%;"><img src="cid:image8" style="width:100%;" /></td>
+    <td style="width:25%;"><img src="cid:image9" style="width:100%;" /></td>
+    <td style="width:25%;"><img src="cid:image10" style="width:100%;" /></td>
   </tr>
 </table><br>
 '''
@@ -67,9 +67,9 @@ image_paths = [
     'D:/Jenkins_Runs/Results/ProteoformReport_TopDown.png',
     'D:/Jenkins_Runs/Results/TaskTimeReport_TopDown.png',
     'D:/Jenkins_Runs/Results/PSMReport_CrossLink.png',
-    'D:/Jenkins_Runs/Results/PSMReport_SemiNonModern.png',
-    'D:/Jenkins_Runs/Results/PeptideReport_SemiNonModernXL.png',
-    'D:/Jenkins_Runs/Results/TaskTimeReport_SemiNonModernXL.png'
+    'D:/Jenkins_Runs/Results/PSMReport_SemiNonModernGlyco.png',
+    'D:/Jenkins_Runs/Results/PeptideReport_SemiNonModernXLGlyco.png',
+    'D:/Jenkins_Runs/Results/TaskTimeReport_SemiNonModernXLGlyco.png'
 ]
 
 # Attach images to the email
