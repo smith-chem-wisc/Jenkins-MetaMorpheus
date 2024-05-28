@@ -25,6 +25,10 @@ namespace Auditor
         public int DeadendCsms { get; private set; }
         public int CrosslinkSinglePsms { get; private set; }
         public int ModernSearchPsms { get; private set; }
+        public double TopDownInitialSearchPsms { get; private set; }
+        public double TopDownPostCalibrationSearchPsms { get; private set; }
+        public double TopDownPostAveragingSearchPsms { get; private set; }
+        public double TopDownPostGPTMDSearchPsms { get; private set; }
 
         // time to run each of the tasks
         public double InitialSearchTimeInSeconds { get; private set; }
@@ -36,6 +40,13 @@ namespace Auditor
         public double NonSpecificSearchTimeInSeconds { get; private set; }
         public double CrosslinkSearchTimeInSeconds { get; private set; }
         public double ModernSearchTimeInSeconds { get; private set; }
+        public double TopDownInitialSearchTimeInSeconds { get; private set; }
+        public double TopDownCalibrationTimeInSeconds { get; private set; }
+        public double TopDownPostCalibrationSearchTimeInSeconds { get; private set; }
+        public double TopDownAveragingTimeInSeconds { get; private set; }
+        public double TopDownPostAveragingSearchTimeInSeconds { get; private set; }
+        public double TopDownGptmdTimeInSeconds { get; private set; }
+        public double TopDownPostGPTMDSearchTimeInSeconds { get; private set; }
 
         // protein groups for initial search (task 1)
         public int InitialSearchProteinGroups { get; private set; }
@@ -65,6 +76,13 @@ namespace Auditor
         /// 7. Semi-specific search
         /// 8. Non-specific search
         /// 9. Crosslink search
+        /// 10. TopDown Intitial Search 
+        /// 11. Top Down Calibration
+        /// 12. Top Down Post-calibration search 
+        /// 13. Top Down Spectral Averaging
+        /// 14. Top Down Post-Averaging Search
+        /// 15. Top Down GPTMD
+        /// 16. Top Down Post-GPTMD search
         /// </summary>
         private void ParseResults()
         {
@@ -129,6 +147,30 @@ namespace Auditor
                                 SemiSpecificSearchTimeInSeconds = timeInSeconds;
                                 break;
                             case Program.TopDownSearchLabel:
+                                switch (taskNumberReading)
+                                {
+                                    case 1:
+                                        TopDownInitialSearchTimeInSeconds = timeInSeconds;
+                                        break;
+                                    case 2:
+                                        TopDownCalibrationTimeInSeconds = timeInSeconds;
+                                        break;
+                                    case 3: 
+                                        TopDownPostCalibrationSearchTimeInSeconds = timeInSeconds;
+                                        break;
+                                    case 40:  // TODO: After avraging is in command line, change these numbers
+                                        TopDownAveragingTimeInSeconds = timeInSeconds;
+                                        break;
+                                    case 4:
+                                        TopDownPostAveragingSearchTimeInSeconds = timeInSeconds;
+                                        break;
+                                    case 5: 
+                                        TopDownGptmdTimeInSeconds = timeInSeconds;
+                                        break;
+                                    case 6:
+                                        TopDownPostGPTMDSearchTimeInSeconds = timeInSeconds;
+                                        break;
+                                }
                                 break;
                         }
                     }
@@ -162,6 +204,22 @@ namespace Auditor
                                 SemiSpecificPsms = numPsms;
                                 break;
                             case Program.TopDownSearchLabel:
+                                switch (taskNumberReading)
+                                {
+                                    case 1:
+                                        TopDownInitialSearchPsms = numPsms;
+                                        break;
+                                    case 3:
+                                        TopDownPostCalibrationSearchPsms = numPsms;
+                                        break;
+                                    //case 5:
+                                    case 4: // TODO: After avraging is in command line, change these numbers
+                                        TopDownPostAveragingSearchPsms = numPsms;
+                                        break;
+                                    case 6:
+                                        TopDownPostGPTMDSearchPsms = numPsms;
+                                        break;
+                                }
                                 break;
                         }
                     }
@@ -213,6 +271,18 @@ namespace Auditor
                 "Post-GPTMD PSMs," +
                 "Initial Search Protein Groups," +
 
+                "TopDown Initial Search Time," +
+                "TopDown Calibration Time," +
+                "TopDown Post-calibration Search Time," +
+                "TopDown Averaging Time," +
+                "TopDown Post-averaging Search Time," +
+                "TopDown GPTMD Time," +
+                "TopDown Post-GPTMD Search Time," +
+                "TopDown Initial PrSMs," +
+                "TopDown Post-calibration PrSMs," +
+                "TopDown Post-averaging PrSMs," +
+                "TopDown Post-GPTMD PrSMs," +
+
                 "Semispecific Search Time," +
                 "Nonspecific Search Time," +
                 "XL Search Time," +
@@ -224,7 +294,7 @@ namespace Auditor
                 "Loop CSMs," +
                 "Deadend CSMs," +
                 "Crosslink Single PSMs," +
-                "Modern Search PSMs";
+                "Modern Search PSMs,";
         }
 
         public override string ToString()
@@ -239,6 +309,17 @@ namespace Auditor
                  + PostCalibrationTargetPsms + ","
                  + PostGptmdTargetPsms + ","
                  + InitialSearchProteinGroups + ","
+                 + Math.Round(TopDownInitialSearchTimeInSeconds / 60.0, 2) + ","
+                 + Math.Round(TopDownCalibrationTimeInSeconds / 60.0, 2) + ","
+                 + Math.Round(TopDownPostCalibrationSearchTimeInSeconds / 60.0, 2) + ","
+                 + Math.Round(TopDownAveragingTimeInSeconds / 60.0, 2) + ","
+                 + Math.Round(TopDownPostAveragingSearchTimeInSeconds / 60.0, 2) + ","
+                 + Math.Round(TopDownGptmdTimeInSeconds / 60.0, 2) + ","
+                 + Math.Round(TopDownPostGPTMDSearchTimeInSeconds / 60.0, 2) + ","
+                 + TopDownInitialSearchPsms + ","
+                 + TopDownPostCalibrationSearchPsms + ","
+                 + TopDownPostAveragingSearchPsms + ","
+                 + TopDownPostGPTMDSearchPsms + ","
                  + Math.Round(SemiSpecificSearchTimeInSeconds / 60.0, 2) + ","
                  + Math.Round(NonSpecificSearchTimeInSeconds / 60.0, 2) + ","
                  + Math.Round(CrosslinkSearchTimeInSeconds / 60.0, 2) + ","

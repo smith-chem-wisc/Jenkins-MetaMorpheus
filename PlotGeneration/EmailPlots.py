@@ -32,27 +32,45 @@ msgText = MIMEText('Unable to load graph.')
 msgAlternative.attach(msgText)
 
 # We reference the image in the IMG SRC attribute by the ID we give it below
-#msgText = MIMEText('<b>Daily Jenkins Report</b><br><table width="100%" style="max-width:640px;"><tr><td><img src="cid:image1" width="100%" /></td</tr></table><br>', 'html')
-msgText = MIMEText('<b>Daily Jenkins Report</b><br><img src="cid:image1"><br><br><img src="cid:image2"><br>', 'html')
+# HTML content for the email with images displayed in a grid
+html_content = '''
+<b>Daily Jenkins Report</b><br>
+<table style="width:100%; max-width:640px;">
+  <tr>
+    <td><img src="cid:image1" style="width:50%;" /></td>
+    <td><img src="cid:image2" style="width:50%;" /></td>
+  </tr>
+  <tr>
+    <td><img src="cid:image3" style="width:50%;" /></td>
+    <td><img src="cid:image4" style="width:50%;" /></td>
+  </tr>
+  <tr>
+    <td><img src="cid:image5" style="width:50%;" /></td>
+    <td><img src="cid:image6" style="width:50%;" /></td>
+    <td><img src="cid:image7" style="width:50%;" /></td>
+  </tr>
+</table><br>
+'''
+msgText = MIMEText(html_content, 'html')
 msgAlternative.attach(msgText)
 
-# This example assumes the image is in the current directory
-fp = open('D:/Jenkins_Runs/Results/PSMReport.png', 'rb')
-msgImage = MIMEImage(fp.read())
-fp.close()
+# List of images to attach
+image_paths = [
+    'D:/Jenkins_Runs/Results/PSMReport.png',
+    'D:/Jenkins_Runs/Results/TaskTimeReport.png',
+    'D:/Jenkins_Runs/Results/PSMReport_TopDown.png',
+    'D:/Jenkins_Runs/Results/TaskTimeReport_TopDown.png',
+    'D:/Jenkins_Runs/Results/PSMReport_CrossLink.png',
+    'D:/Jenkins_Runs/Results/PSMReport_SemiNonModern.png',
+    'D:/Jenkins_Runs/Results/TaskTimeReport_SemiNonModernXL.png'
+]
 
-# Define the image's ID as referenced above
-msgImage.add_header('Content-ID', '<image1>')
-msgRoot.attach(msgImage)
-
-# This example assumes the image is in the current directory
-fp = open('D:/Jenkins_Runs/Results/TaskTimeReport.png', 'rb')
-msgImage = MIMEImage(fp.read())
-fp.close()
-
-# Define the image's ID as referenced above
-msgImage.add_header('Content-ID', '<image2>')
-msgRoot.attach(msgImage)
+# Attach images to the email
+for i, image_path in enumerate(image_paths):
+    with open(image_path, 'rb') as fp:
+        msgImage = MIMEImage(fp.read())
+    msgImage.add_header('Content-ID', '<image{}>'.format(i+1))
+    msgRoot.attach(msgImage)
 
 # Send the email to every address listed in the email.config (this example assumes SMTP authentication is required)
 import smtplib

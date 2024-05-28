@@ -6,6 +6,7 @@ df = pandas.read_csv("D:/Jenkins_Runs/Results/ProcessedResults.csv")
 xLabel = "Date"
 yLabel = "Time to run task (min)"
 
+pyplot.title('Bottom-Up Task Time')
 pyplot.xlabel(xLabel)
 pyplot.ylabel(yLabel)
 

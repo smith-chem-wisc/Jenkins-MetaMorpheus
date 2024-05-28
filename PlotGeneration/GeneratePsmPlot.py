@@ -8,6 +8,7 @@ df = pandas.read_csv("D:/Jenkins_Runs/Results/ProcessedResults.csv")
 xLabel = "Date"
 yLabel = "PSMs"
 
+pyplot.title('Bottom-Up PSMs')
 pyplot.xlabel(xLabel)
 pyplot.ylabel(yLabel)
 
