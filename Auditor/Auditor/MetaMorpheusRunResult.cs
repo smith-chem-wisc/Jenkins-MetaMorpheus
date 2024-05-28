@@ -192,7 +192,7 @@ namespace Auditor
                                 break;
                         }
                     }
-                    else if (line.Contains("All target PSM"))
+                    else if (line.Contains("All target PSM") || line.Contains("PSMs within 1%"))
                     {
                         int numPsms = int.Parse(line.Split(':').Last().Trim());
 

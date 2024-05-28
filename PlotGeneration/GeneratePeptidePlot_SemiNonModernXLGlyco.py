@@ -19,11 +19,11 @@ y1 = df["Semispecific Peptides"]
 y2 = df["Nonspecific Peptides"]
 y3 = df["Crosslink Single Peptides"]
 y4 = df["Modern Search Peptides"]
-y5 = df["Glyco Peptides"]
+y5 = df["Glyco Search Peptides"]
 
 b1 = pyplot.plot(x, y1, color='blue')
 b2 = pyplot.plot(x, y2, color='orange')
-b3 = pyplot.plot(x, y3, color='yellow')
+b3 = pyplot.plot(x, y3, color='green')
 b4 = pyplot.plot(x, y4, color='red')
 b5 = pyplot.plot(x, y5, color='yellow')
 

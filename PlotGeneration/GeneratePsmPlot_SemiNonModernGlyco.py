@@ -23,7 +23,7 @@ y4 = df["Glyco Search PSMs"]
 b1 = pyplot.plot(x, y1, color='blue')
 b2 = pyplot.plot(x, y2, color='orange')
 b3 = pyplot.plot(x, y3, color='red')
-b4 = pyplot.plot(x, y4 color='yellow')
+b4 = pyplot.plot(x, y4, color='yellow')
 
 # set up x axis ticks
 locs = [0,1,2,3,4]
@@ -35,7 +35,7 @@ ymin, ymax = pyplot.ylim()
 pyplot.ylim(ymin - 1000, ymax + 1000)
 
 # set up legend
-pyplot.legend((b1[0], b2[0], b3[0], b4[0]), ('Semi-Specific Search', 'Non-Specific Search' 'Modern Search', 'Glyco Search'), loc=1, bbox_to_anchor=(1.1, 1.18))
+pyplot.legend((b1[0], b2[0], b3[0], b4[0]), ('Semi-Specific Search', 'Non-Specific Search', 'Modern Search', 'Glyco Search'), loc=1, bbox_to_anchor=(1.1, 1.18))
 
 # label data points
 for i, txt in enumerate(y1):
@@ -44,7 +44,7 @@ for i, txt in enumerate(y2):
     pyplot.annotate(txt, (x[i],y2[i]), fontsize=6)
 for i, txt in enumerate(y3):
     pyplot.annotate(txt, (x[i],y3[i]), fontsize=6)
-for i, txt, in enumerate(y4)
+for i, txt, in enumerate(y4):
     pyplot.annotate(txt, (x[i],y4[i]), fontsize=6)
 
 # save the plot
