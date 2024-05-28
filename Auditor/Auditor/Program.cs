@@ -15,9 +15,10 @@ namespace Auditor
         public const string NonspecificSearchLabel = "Nonspecific";
         public const string CrosslinkSearchLabel = "XL";
         public const string TopDownSearchLabel = "TopDown";
+        public const string GlycoSearchLabel = "Glyco";
 
         private static string[] labels = { ClassicSearchLabel, ModernSearchLabel,
-            SemiSpecificSearchLabel, NonspecificSearchLabel, CrosslinkSearchLabel, TopDownSearchLabel };
+            SemiSpecificSearchLabel, NonspecificSearchLabel, CrosslinkSearchLabel, TopDownSearchLabel, GlycoSearchLabel };
 
         public static void Main(string[] args)
         {

@@ -32,6 +32,8 @@ namespace Auditor
         public int CrosslinkSinglePeptides { get; private set; }
         public int ModernSearchPsms { get; private set; }
         public int ModernSearchPeptides { get; private set; }
+        public int GlycoSearchPsms { get; private set; }
+        public int GlycoSearchPeptides { get; private set; }
         public double TopDownInitialSearchPsms { get; private set; }
         public double TopDownInitialSearchProteoforms { get; private set; }
         public double TopDownPostCalibrationSearchPsms { get; private set; }
@@ -51,6 +53,7 @@ namespace Auditor
         public double NonSpecificSearchTimeInSeconds { get; private set; }
         public double CrosslinkSearchTimeInSeconds { get; private set; }
         public double ModernSearchTimeInSeconds { get; private set; }
+        public double GlycoSearchTimeInSeconds { get; private set; }
         public double TopDownInitialSearchTimeInSeconds { get; private set; }
         public double TopDownCalibrationTimeInSeconds { get; private set; }
         public double TopDownPostCalibrationSearchTimeInSeconds { get; private set; }
@@ -94,6 +97,7 @@ namespace Auditor
         /// 14. Top Down Post-Averaging Search
         /// 15. Top Down GPTMD
         /// 16. Top Down Post-GPTMD search
+        /// 17. Glyco
         /// </summary>
         private void ParseResults()
         {
@@ -183,6 +187,9 @@ namespace Auditor
                                         break;
                                 }
                                 break;
+                            case Program.GlycoSearchLabel:
+                                GlycoSearchTimeInSeconds = timeInSeconds;
+                                break;
                         }
                     }
                     else if (line.Contains("All target PSM"))
@@ -232,6 +239,9 @@ namespace Auditor
                                         break;
                                 }
                                 break;
+                            case Program.GlycoSearchLabel:
+                                GlycoSearchPsms = numPsms;
+                                break;
                         }
                     }
                     else if (line.Contains("All target pept") || line.Contains("All target proteo"))
@@ -280,6 +290,9 @@ namespace Auditor
                                         TopDownPostGPTMDSearchProteoforms = numPsms;
                                         break;
                                 }
+                                break;
+                            case Program.GlycoSearchLabel:
+                                GlycoSearchPeptides = numPsms;
                                 break;
                         }
                     }
@@ -354,6 +367,7 @@ namespace Auditor
                 "Nonspecific Search Time," +
                 "XL Search Time," +
                 "Modern Search Time," +
+                "Glyco Search Time," +
                 "Semispecific PSMs," +
                 "Semispecific Peptides," +
                 "Nonspecific PSMs," +
@@ -365,7 +379,9 @@ namespace Auditor
                 "Crosslink Single PSMs," +
                 "Crosslink Single Peptides," +
                 "Modern Search PSMs," +
-                "Modern Search Peptides,";
+                "Modern Search Peptides," +
+                "Glyco Search PSMs," +
+                "Glyco Search Peptides,";
         }
 
         public override string ToString()
@@ -402,6 +418,7 @@ namespace Auditor
                  + Math.Round(NonSpecificSearchTimeInSeconds / 60.0, 2) + ","
                  + Math.Round(CrosslinkSearchTimeInSeconds / 60.0, 2) + ","
                  + Math.Round(ModernSearchTimeInSeconds / 60.0, 2) + ","
+                 + Math.Round(GlycoSearchTimeInSeconds / 60.0, 2) + ","
                  + SemiSpecificPsms + ","
                  + SemiSpecificPeptides + ","
                  + NonSpecificPsms + ","
@@ -413,7 +430,9 @@ namespace Auditor
                  + CrosslinkSinglePsms + ","
                  + CrosslinkSinglePeptides + ","
                  + ModernSearchPsms + ","
-                 + ModernSearchPeptides;
+                 + ModernSearchPeptides + ","
+                 + GlycoSearchPsms + ","
+                 + GlycoSearchPeptides;
         }
     }
 }
