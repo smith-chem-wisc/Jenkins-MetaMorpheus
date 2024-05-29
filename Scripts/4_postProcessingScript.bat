@@ -8,5 +8,5 @@ C:\Python27\python D:\Jenkins_Runs\PlotGeneration\GenerateTaskTimePlot.py
 C:\Python27\python D:\Jenkins_Runs\PlotGeneration\GenerateTaskTimePlot_SemiNonModernXLGlyco.py
 C:\Python27\python D:\Jenkins_Runs\PlotGeneration\GenerateTaskTimePlot_TopDown.py
 C:\Python27\python D:\Jenkins_Runs\PlotGeneration\GeneratePeptidePlot.py
-C:\Python27\python D:\Jenkins_Runs\PlotGeneration\GeneratePeptidePlot_SemiNonModernXL.py
+C:\Python27\python D:\Jenkins_Runs\PlotGeneration\GeneratePeptidePlot_SemiNonModern.py
 C:\Python27\python D:\Jenkins_Runs\PlotGeneration\GenerateProteoformPlot_TopDown.py

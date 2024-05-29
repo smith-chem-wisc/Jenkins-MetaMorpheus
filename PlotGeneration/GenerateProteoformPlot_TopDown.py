@@ -11,7 +11,7 @@ yLabel = "Proteoforms"
 
 pyplot.xlabel(xLabel)
 pyplot.ylabel(yLabel)
-pyplot.title('Top-Down PrSMs')
+pyplot.title('Top-Down Proteoforms')
 
 # generate the plot
 x = df[xLabel]
