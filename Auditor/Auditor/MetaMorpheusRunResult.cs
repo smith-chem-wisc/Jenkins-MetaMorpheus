@@ -192,7 +192,7 @@ namespace Auditor
                                 break;
                         }
                     }
-                    else if (line.Contains("All target PSM") || line.Contains("PSMs within 1%"))
+                    else if (line.Contains("All target PSM") || (allResultsTxtFile.Key is Program.GlycoSearchLabel && line.Contains("PSMs within 1%")))
                     {
                         int numPsms = int.Parse(line.Split(':').Last().Trim());
 
