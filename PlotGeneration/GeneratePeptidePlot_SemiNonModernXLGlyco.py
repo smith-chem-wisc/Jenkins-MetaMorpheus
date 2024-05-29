@@ -19,13 +19,11 @@ y1 = df["Semispecific Peptides"]
 y2 = df["Nonspecific Peptides"]
 y3 = df["Crosslink Single Peptides"]
 y4 = df["Modern Search Peptides"]
-y5 = df["Glyco Search Peptides"]
 
 b1 = pyplot.plot(x, y1, color='blue')
 b2 = pyplot.plot(x, y2, color='orange')
 b3 = pyplot.plot(x, y3, color='green')
 b4 = pyplot.plot(x, y4, color='red')
-b5 = pyplot.plot(x, y5, color='yellow')
 
 # set up x axis ticks
 locs = [0,1,2,3,4]
@@ -37,7 +35,7 @@ ymin, ymax = pyplot.ylim()
 pyplot.ylim(ymin - 1000, ymax + 1000)
 
 # set up legend
-pyplot.legend((b1[0], b2[0], b3[0], b4[0], b5[0]), ('Semi-Specific Search', 'Non-Specific Search', 'Crosslink Search', 'Modern Search', 'Glyco Search'), loc=1, bbox_to_anchor=(1.1, 1.18))
+pyplot.legend((b1[0], b2[0], b3[0], b4[0], b5[0]), ('Semi-Specific Search', 'Non-Specific Search', 'Crosslink Search', 'Modern Search'), loc=1, bbox_to_anchor=(1.1, 1.18))
 
 # label data points
 for i, txt in enumerate(y1):
@@ -48,8 +46,5 @@ for i, txt in enumerate(y3):
     pyplot.annotate(txt, (x[i],y3[i]), fontsize=6)
 for i, txt in enumerate(y4):
     pyplot.annotate(txt, (x[i],y4[i]), fontsize=6)
-for i, txt in enumerate(y5):
-    pyplot.annotate(txt, (x[i],y5[i]), fontsize=6)
-
 # save the plot
-pyplot.savefig('D:/Jenkins_Runs/Results/PeptideReport_SemiNonModernXLGlyco.png')
+pyplot.savefig('D:/Jenkins_Runs/Results/PeptideReport_SemiNonModernXL.png')
