@@ -101,6 +101,10 @@ namespace Auditor
                     .GetDirectories()
                     .OrderByDescending(v => v.CreationTime).ToList();
 
+                // delete old calibrated and averaged files
+                foreach (string mzml in Directory.GetFiles(p.Object.InputFolder).Where(file => file.EndsWith(".mzml")))
+                    File.Delete(mzml);
+
                 // delete old database index files
                 var indexedDatabaseDirectoryPathClassic = Path.Combine(Path.GetDirectoryName(p.Object.InputFolder.ToString()), "DataAndRunSettings", "Classic", "DatabaseIndex");
                 var indexedDatabaseDirectoryPathNonSpecific = Path.Combine(Path.GetDirectoryName(p.Object.InputFolder.ToString()), "DataAndRunSettings", "Nonspecific", "DatabaseIndex");
