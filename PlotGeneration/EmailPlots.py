@@ -2,6 +2,8 @@
 # email clients that don't want to display the HTML.
 
 import os
+import re
+import requests
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
 from email.MIMEImage import MIMEImage
@@ -15,6 +17,8 @@ email_server_host = 'smtp.gmail.com'
 port = 587
 email_username = strFrom
 email_password = email[1]
+
+
 
 # Create the root message and fill in the from, to, and subject headers
 msgRoot = MIMEMultipart('related')
@@ -31,10 +35,35 @@ msgRoot.attach(msgAlternative)
 msgText = MIMEText('Unable to load graph.')
 msgAlternative.attach(msgText)
 
+# Extract MetaMorpheus and MzLib Version Numbers
+def extract_version(file_path):
+    with open(file_path, 'r') as file:
+        for line in file:
+            # Check if the line contains the mzLib package reference
+            if '<PackageReference Include="mzLib"' in line:
+                # Use a regular expression to extract the version number
+                match = re.search(r'Version="([\d\.]+)"', line)
+                if match:
+                    return match.group(1)
+    return None
+
+file_path = os.path.join(os.path.dirname(folder),'MetaMorpheus_MasterBranch\\MetaMorpheus\\GUI\\GUI.csproj')
+mzLibVersion = extract_version(file_path)
+
+response = requests.get("https://api.github.com/repos/smith-chem-wisc/MetaMorpheus/releases/latest")
+mmVersion = response.json()["tag_name"]
+response = requests.get("https://api.github.com/repos/smith-chem-wisc/MetaMorpheus/commits/master")
+latestCommitMessage = response.json()["commit"]["message"]
+latestCommitHash = response.json()["sha"]
+
 # We reference the image in the IMG SRC attribute by the ID we give it below
 # HTML content for the email with images displayed in a grid
 html_content = '''
 <b>Daily Jenkins Report</b><br>
+<p>MetaMorpheus Version: {mmVersion}</p>
+<p>MetaMorpheus Latest Commit Message: {latestCommitMessage}</p>
+<p>MetaMorpheus Latest Commit Hash: {latestCommitHash}</p>
+<p>Installed MzLib Version: {mzLibVersion}</p>
 <div style="transform: scale(0.6); transform-origin: top left; width: 160%; margin-left: -20%;">
 <table style="width:100%; max-width:640px; border-spacing: 10px; border-collapse: separate;">
   <tr>
@@ -57,7 +86,7 @@ html_content = '''
   </tr>
 </table><br>
 </div>
-'''
+'''.format(mmVersion = mmVersion, latestCommitMessage=latestCommitMessage, latestCommitHash=latestCommitHash,mzLibVersion=mzLibVersion)
 
 msgText = MIMEText(html_content, 'html')
 msgAlternative.attach(msgText)
