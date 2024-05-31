@@ -3,6 +3,8 @@ import pandas
 
 # read the csv
 df = pandas.read_csv("D:/Jenkins_Runs/Results/ProcessedResults.csv")
+colors = pandas.read_csv("D://Jenkins_Runs/PlotGeneration/PlotColorDict.csv")
+colorDict = dict(zip(colors["Label"], colors["Color"]))
 
 ####### Generate the Top Down Plot #######
 # label the axis
@@ -20,10 +22,10 @@ y2 = df["TopDown Post-calibration PrSMs"]
 y3 = df["TopDown Post-averaging PrSMs"]
 y4 = df["TopDown Post-GPTMD PrSMs"]
 
-b1 = pyplot.plot(x, y1, color='blue')
-b2 = pyplot.plot(x, y2, color='orange')
-b3 = pyplot.plot(x, y3, color='red')
-b4 = pyplot.plot(x, y4, color='green')
+b1 = pyplot.plot(x, y1, color=colorDict["Search"])
+b2 = pyplot.plot(x, y2, color=colorDict["Calibrate"])
+b3 = pyplot.plot(x, y3, color=colorDict["Average"])
+b4 = pyplot.plot(x, y4, color=colorDict["GPTMD"])
 
 # set up x axis ticks
 locs = [0,1,2,3,4]

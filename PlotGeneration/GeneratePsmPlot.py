@@ -3,6 +3,8 @@ import pandas
 
 # read the csv
 df = pandas.read_csv("D:/Jenkins_Runs/Results/ProcessedResults.csv")
+colors = pandas.read_csv("D://Jenkins_Runs/PlotGeneration/PlotColorDict.csv")
+colorDict = dict(zip(colors["Label"], colors["Color"]))
 
 # label the axes
 xLabel = "Date"
@@ -18,9 +20,9 @@ y1 = df["Initial Search PSMs"]
 y2 = df["Post-calibration PSMs"]
 y3 = df["Post-GPTMD PSMs"]
 
-b1 = pyplot.plot(x, y1, color='blue')
-b2 = pyplot.plot(x, y2, color='orange')
-b3 = pyplot.plot(x, y3, color='green')
+b1 = pyplot.plot(x, y1, color=colorDict["Search"])
+b2 = pyplot.plot(x, y2, color=colorDict["Calibrate"])
+b3 = pyplot.plot(x, y3, color=colorDict["GPTMD"])
 
 # set up x axis ticks
 locs = [0,1,2,3,4]

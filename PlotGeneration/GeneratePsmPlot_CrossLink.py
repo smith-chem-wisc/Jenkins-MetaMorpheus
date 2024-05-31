@@ -3,6 +3,8 @@ import pandas
 
 # read the csv
 df = pandas.read_csv("D:/Jenkins_Runs/Results/ProcessedResults.csv")
+colors = pandas.read_csv("D://Jenkins_Runs/PlotGeneration/PlotColorDict.csv")
+colorDict = dict(zip(colors["Label"], colors["Color"]))
 
 ####### Generate the Top Down Plot #######
 # label the axis
@@ -21,11 +23,11 @@ y3 = df["Loop CSMs"]
 y4 = df["Crosslink Single PSMs"]
 y5 = df["Deadend CSMs"]
 
-b1 = pyplot.plot(x, y1, color='blue')
-b2 = pyplot.plot(x, y2, color='orange')
-b3 = pyplot.plot(x, y3, color='green')
-b4 = pyplot.plot(x, y4, color='red')
-b5 = pyplot.plot(x, y5, color='purple')
+b1 = pyplot.plot(x, y1, color=colorDict["Interlink"])
+b2 = pyplot.plot(x, y2, color=colorDict["Intralink"])
+b3 = pyplot.plot(x, y3, color=colorDict["Loop"])
+b4 = pyplot.plot(x, y4, color=colorDict["Crosslink Single"])
+b5 = pyplot.plot(x, y5, color=colorDict["Deadend"])
 
 # set up x axis ticks
 locs = [0,1,2,3,4]

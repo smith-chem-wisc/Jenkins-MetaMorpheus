@@ -2,6 +2,8 @@ import matplotlib.pyplot as pyplot
 import pandas
 
 df = pandas.read_csv("D:/Jenkins_Runs/Results/ProcessedResults.csv")
+colors = pandas.read_csv("D://Jenkins_Runs/PlotGeneration/PlotColorDict.csv")
+colorDict = dict(zip(colors["Label"], colors["Color"]))
 
 xLabel = "Date"
 yLabel = "Time to run task (min)"
@@ -26,13 +28,13 @@ locs = [0,1,2,3,4]
 labels = [x[0].split(' ',1)[0], x[1].split(' ',1)[0], x[2].split(' ',1)[0], x[3].split(' ',1)[0], x[4].split(' ',1)[0]]
 pyplot.xticks(locs, labels, fontsize=8)
 
-b1 = pyplot.bar(x, y1, width=width, color='blue')
-b2 = pyplot.bar(x, y2, width=width, bottom=y1, color='orange')
-b3 = pyplot.bar(x, y3, width=width, bottom=y1+y2, color='blue')
-b4 = pyplot.bar(x, y4, width=width, bottom=y1+y2+y3, color='red')
-b5 = pyplot.bar(x, y5, width=width, bottom=y1+y2+y3+y4, color='blue')
-b6 = pyplot.bar(x, y6, width=width, bottom=y1+y2+y3+y4+y5, color='green')
-b7 = pyplot.bar(x, y7, width=width, bottom=y1+y2+y3+y4+y5+y6, color='blue')
+b1 = pyplot.bar(x, y1, width=width, color=colorDict["Search"])
+b2 = pyplot.bar(x, y2, width=width, bottom=y1, color=colorDict["Calibrate"])
+b3 = pyplot.bar(x, y3, width=width, bottom=y1+y2, color=colorDict["Search"])
+b4 = pyplot.bar(x, y4, width=width, bottom=y1+y2+y3, color=colorDict["Average"])
+b5 = pyplot.bar(x, y5, width=width, bottom=y1+y2+y3+y4, color=colorDict["Search"])
+b6 = pyplot.bar(x, y6, width=width, bottom=y1+y2+y3+y4+y5, color=colorDict["GPTMD"])
+b7 = pyplot.bar(x, y7, width=width, bottom=y1+y2+y3+y4+y5+y6, color=colorDict["Search"])
 
 pyplot.legend((b1[0], b2[0], b4[0], b6[0]), ('Search', 'Calibration', 'Averaging', 'GPTMD'), bbox_to_anchor=(1.1, 1.18), loc=1)
 

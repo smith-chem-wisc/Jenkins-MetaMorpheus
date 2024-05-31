@@ -3,6 +3,8 @@ import pandas
 
 # read the csv
 df = pandas.read_csv("D:/Jenkins_Runs/Results/ProcessedResults.csv")
+colors = pandas.read_csv("D://Jenkins_Runs/PlotGeneration/PlotColorDict.csv")
+colorDict = dict(zip(colors["Label"], colors["Color"]))
 
 ####### Generate the Top Down Plot #######
 # label the axis
@@ -20,10 +22,10 @@ y2 = df["Nonspecific PSMs"]
 y3 = df["Modern Search PSMs"]
 y4 = df["Glyco Search PSMs"]
 
-b1 = pyplot.plot(x, y1, color='blue')
-b2 = pyplot.plot(x, y2, color='orange')
-b3 = pyplot.plot(x, y3, color='red')
-b4 = pyplot.plot(x, y4, color='yellow')
+b1 = pyplot.plot(x, y1, color=colorDict["Semi-Specific"])
+b2 = pyplot.plot(x, y2, color=colorDict["Non-Specific"])
+b3 = pyplot.plot(x, y3, color=colorDict["Modern"])
+b4 = pyplot.plot(x, y4, color=colorDict["Glyco"])
 
 # set up x axis ticks
 locs = [0,1,2,3,4]

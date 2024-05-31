@@ -57,6 +57,7 @@ namespace Auditor
                     .Take(p.Object.NumberOfDaysToReport)
                     .OrderBy(v => v.CreationTime).ToList();
 
+                // foreach regular run, find all other runs with labels other than Classic
                 for (int i = 0; i < regularRunDirectories.Count; i++)
                 {
                     DirectoryInfo regularRunDir = regularRunDirectories[i];
