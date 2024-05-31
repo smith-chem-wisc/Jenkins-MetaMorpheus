@@ -13,27 +13,49 @@ namespace Auditor
         // time of run folder creation
         public DateTime DateTime { get; private set; }
 
-        // PSM results
+        // Bottom Up results
         public int InitialSearchTargetPsms { get; private set; }
         public int InitialSearchTargetPeptides { get; private set; }
         public int PostCalibrationTargetPsms { get; private set; }
         public int PostCalibrationTargetPeptides { get; private set; }
         public int PostGptmdTargetPsms { get; private set; }
         public int PostGptmdTargetPeptides { get; private set; }
-        public int SemiSpecificPsms { get; private set; }
-        public int SemiSpecificPeptides { get; private set; }
-        public int NonSpecificPsms { get; private set; }
-        public int NonSpecificPeptides { get; private set; }
+        public double InitialSearchTimeInSeconds { get; private set; }
+        public double CalibrationTimeInSeconds { get; private set; }
+        public double PostCalibrationSearchTimeInSeconds { get; private set; }
+        public double GptmdTimeInSeconds { get; private set; }
+        public double PostGptmdSearchTimeInSeconds { get; private set; }
+
+        // Cross Link
         public int InterlinkCsms { get; private set; }
         public int IntralinkCsms { get; private set; }
         public int LoopCsms { get; private set; }
         public int DeadendCsms { get; private set; }
         public int CrosslinkSinglePsms { get; private set; }
         public int CrosslinkSinglePeptides { get; private set; }
-        public int ModernSearchPsms { get; private set; }
-        public int ModernSearchPeptides { get; private set; }
+        public double CrosslinkSearchTimeInSeconds { get; private set; }
+
+        // O-Glyco Search
         public int GlycoSearchPsms { get; private set; }
         public int GlycoSearchPeptides { get; private set; }
+        public double ModernSearchTimeInSeconds { get; private set; }
+
+        // Semi-Specific Search
+        public int SemiSpecificPsms { get; private set; }
+        public int SemiSpecificPeptides { get; private set; }
+        public double SemiSpecificSearchTimeInSeconds { get; private set; }
+
+        // Non-Specific Search
+        public int NonSpecificPsms { get; private set; }
+        public int NonSpecificPeptides { get; private set; }
+        public double NonSpecificSearchTimeInSeconds { get; private set; }
+
+        // Modern Search
+        public int ModernSearchPsms { get; private set; }
+        public int ModernSearchPeptides { get; private set; }
+        public double GlycoSearchTimeInSeconds { get; private set; }
+
+        // Top Down
         public double TopDownInitialSearchPsms { get; private set; }
         public double TopDownInitialSearchProteoforms { get; private set; }
         public double TopDownPostCalibrationSearchPsms { get; private set; }
@@ -42,18 +64,6 @@ namespace Auditor
         public double TopDownPostAveragingSearchProteoforms { get; private set; }
         public double TopDownPostGPTMDSearchPsms { get; private set; }
         public double TopDownPostGPTMDSearchProteoforms { get; private set; }
-
-        // time to run each of the tasks
-        public double InitialSearchTimeInSeconds { get; private set; }
-        public double CalibrationTimeInSeconds { get; private set; }
-        public double PostCalibrationSearchTimeInSeconds { get; private set; }
-        public double GptmdTimeInSeconds { get; private set; }
-        public double PostGptmdSearchTimeInSeconds { get; private set; }
-        public double SemiSpecificSearchTimeInSeconds { get; private set; }
-        public double NonSpecificSearchTimeInSeconds { get; private set; }
-        public double CrosslinkSearchTimeInSeconds { get; private set; }
-        public double ModernSearchTimeInSeconds { get; private set; }
-        public double GlycoSearchTimeInSeconds { get; private set; }
         public double TopDownInitialSearchTimeInSeconds { get; private set; }
         public double TopDownCalibrationTimeInSeconds { get; private set; }
         public double TopDownPostCalibrationSearchTimeInSeconds { get; private set; }
@@ -80,6 +90,9 @@ namespace Auditor
         }
 
         /// <summary>
+        /// Parses results from the AllResults.text files
+        /// Uses the TimeToRunTask to incrememt in multi-task runs such as the bottom up or top down
+        /// 
         /// CASES ARE:
         /// 1. Initial search
         /// 2. Calibration
