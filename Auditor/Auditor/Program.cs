@@ -32,6 +32,10 @@ namespace Auditor
              .As('o', "OutputFolder")
              .Required();
 
+            p.Setup(arg => arg.NumberOfDaysToReport)
+                .As('n', "NumberOfDaysToReport")
+                .SetDefault(5);
+
             var result = p.Parse(args);
 
             if (!result.HasErrors)
@@ -43,15 +47,14 @@ namespace Auditor
                     dir.Delete(true);
                 }
 
-                // get results from last 5 runs
-                int historyCount = 5;
-                MetaMorpheusRunResultsDirectories[] runResults = new MetaMorpheusRunResultsDirectories[historyCount];
+                // get results from last n runs
+                MetaMorpheusRunResultsDirectories[] runResults = new MetaMorpheusRunResultsDirectories[p.Object.NumberOfDaysToReport];
 
                 // get last regular run result (first thing to run)
                 List<DirectoryInfo> regularRunDirectories = new DirectoryInfo(p.Object.InputFolder).GetDirectories()
                     .Where(v => v.Name.Contains(ClassicSearchLabel))
                     .OrderByDescending(v => v.CreationTime)
-                    .Take(historyCount)
+                    .Take(p.Object.NumberOfDaysToReport)
                     .OrderBy(v => v.CreationTime).ToList();
 
                 for (int i = 0; i < regularRunDirectories.Count; i++)
@@ -71,7 +74,7 @@ namespace Auditor
                             .GetDirectories()
                             .Where(v => v.Name.Contains(label) && v.Name.Contains(timestamp))
                             .OrderByDescending(v => v.CreationTime)
-                            .Take(historyCount)
+                            .Take(p.Object.NumberOfDaysToReport)
                             .OrderBy(v => v.CreationTime)
                             .FirstOrDefault();
 
@@ -102,7 +105,7 @@ namespace Auditor
                     .OrderByDescending(v => v.CreationTime).ToList();
 
                 // delete old calibrated and averaged files
-                foreach (string mzml in Directory.GetFiles(p.Object.InputFolder).Where(file => file.EndsWith(".mzml")))
+                foreach (string mzml in Directory.GetFiles(p.Object.InputFolder).Where(file => file.EndsWith(".mzML")))
                     File.Delete(mzml);
 
                 // delete old database index files
@@ -131,7 +134,7 @@ namespace Auditor
                     weeks++;
                 }
 
-                for (int d = 0; d < historyCount; d++)
+                for (int d = 0; d < 5; d++)
                 {
                     datesToKeep.Add(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day - d).Date);
                 }
@@ -152,6 +155,7 @@ namespace Auditor
 
         public string InputFolder { get; set; }
         public string OutputFolder { get; set; }
+        public int NumberOfDaysToReport { get; set; }
 
         #endregion Public Properties
     }

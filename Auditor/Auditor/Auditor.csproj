@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MetaMorpheusRunResultsDirectories.cs" />
+    <Compile Include="MetaMorpheusRunType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MetaMorpheusRunResult.cs" />
