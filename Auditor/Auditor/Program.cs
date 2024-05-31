@@ -87,12 +87,6 @@ namespace Auditor
                     runResults[i] = new MetaMorpheusRunResultsDirectories(directoryInfos);
                 }
 
-                //// set up output file
-                //List<string> output = new List<string> { MetaMorpheusRunResult.CommaSeparatedHeader() };
-
-                //// add results from each run
-                //runResults.Where(v => v != null).ForEach(v => output.Add(v.ParsedRunResult.ToString()));
-
                 // write results
                 // create output directory
                 if (!Directory.Exists(p.Object.OutputFolder))
@@ -105,15 +99,13 @@ namespace Auditor
                     new CsvConfiguration(System.Globalization.CultureInfo.InvariantCulture)))
                 {
                     csv.WriteHeader<MetaMorpheusRunResult>();
-                    csv.NextRecord();
                     foreach (var item in runResults.Where(run => run != null)
                         .Select(specificResult => specificResult.ParsedRunResult))
                     {
+                        csv.NextRecord();
                         csv.WriteRecord<MetaMorpheusRunResult>(item);
                     }
                 }
-
-                //File.WriteAllLines(Path.Combine(p.Object.OutputFolder, "ProcessedResults.csv"), output);
 
                 // delete old search results (keeps 1 result for every 7 days, except it keeps all of the last 5 days)
                 List<DirectoryInfo> directoriesToPotentiallyDelete = new DirectoryInfo(p.Object.InputFolder)
@@ -121,7 +113,7 @@ namespace Auditor
                     .OrderByDescending(v => v.CreationTime).ToList();
 
                 // delete old calibrated and averaged files
-                foreach (string mzml in Directory.GetFiles(p.Object.InputFolder).Where(file => file.EndsWith(".mzML")))
+                foreach (string mzml in Directory.GetFiles(p.Object.InputFolder, "*", SearchOption.AllDirectories).Where(file => file.EndsWith(".mzML")))
                     File.Delete(mzml);
 
                 // delete old database index files

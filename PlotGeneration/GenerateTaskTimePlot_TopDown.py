@@ -22,7 +22,6 @@ y4 = df["TopDown Averaging Time"]
 y5 = df["TopDown Post-averaging Search Time"]
 y6 = df["TopDown GPTMD Time"]
 y7 = df["TopDown Post-GPTMD Search Time"]
-pyplot.ylim(0,200)
 
 locs = [0,1,2,3,4]
 labels = [x[0].split(' ',1)[0], x[1].split(' ',1)[0], x[2].split(' ',1)[0], x[3].split(' ',1)[0], x[4].split(' ',1)[0]]
