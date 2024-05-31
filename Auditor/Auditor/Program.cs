@@ -44,116 +44,152 @@ namespace Auditor
             {
                 // delete old output if it exists
                 if (Directory.Exists(p.Object.OutputFolder))
-                {
-                    var dir = new DirectoryInfo(p.Object.OutputFolder);
-                    dir.Delete(true);
-                }
+                    Directory.Delete(p.Object.OutputFolder, true);
 
-                // get results from last n runs
-                MetaMorpheusRunResultsDirectories[] runResults = new MetaMorpheusRunResultsDirectories[p.Object.NumberOfDaysToReport];
+                MetaMorpheusRunResultsDirectories[] runResults = GetRunDirectories(p.Object.NumberOfDaysToReport, p.Object.InputFolder);
 
-                // get last regular run result (first thing to run)
-                List<DirectoryInfo> regularRunDirectories = new DirectoryInfo(p.Object.InputFolder).GetDirectories()
-                    .Where(v => v.Name.Contains(ClassicSearchLabel))
-                    .OrderByDescending(v => v.CreationTime)
-                    .Take(p.Object.NumberOfDaysToReport)
-                    .OrderBy(v => v.CreationTime).ToList();
-
-                // foreach regular run, find all other runs with labels other than Classic
-                for (int i = 0; i < regularRunDirectories.Count; i++)
-                {
-                    DirectoryInfo regularRunDir = regularRunDirectories[i];
-
-                    Dictionary<string, DirectoryInfo> directoryInfos = new Dictionary<string, DirectoryInfo> { { ClassicSearchLabel, regularRunDir } };
-
-                    var ok = regularRunDir.Name.Split(new char[] { '[' });
-                    string timestamp = regularRunDir.Name.Split(new char[] { '[' })[1].TrimEnd(new char[] { ']' });
-
-                    var otherLabels = Labels.Where(l => l != ClassicSearchLabel).ToList();
-
-                    foreach (string label in otherLabels)
-                    {
-                        DirectoryInfo otherRunDirectory = new DirectoryInfo(p.Object.InputFolder)
-                            .GetDirectories()
-                            .Where(v => v.Name.Contains(label) && v.Name.Contains(timestamp))
-                            .OrderByDescending(v => v.CreationTime)
-                            .Take(p.Object.NumberOfDaysToReport)
-                            .OrderBy(v => v.CreationTime)
-                            .FirstOrDefault();
-
-                        directoryInfos.Add(label, otherRunDirectory);
-                    }
-
-                    runResults[i] = new MetaMorpheusRunResultsDirectories(directoryInfos);
-                }
-
-                // write results
                 // create output directory
                 if (!Directory.Exists(p.Object.OutputFolder))
-                {
                     Directory.CreateDirectory(p.Object.OutputFolder);
-                }
 
-                using (var csv = new CsvWriter(new StreamWriter(
-                    File.Create(Path.Combine(p.Object.OutputFolder, "ProcessedResults.csv"))), 
-                    new CsvConfiguration(System.Globalization.CultureInfo.InvariantCulture)))
+                WriteParsingResults(p.Object.OutputFolder, runResults);
+                CleanUpOldRunDirectories(p.Object.InputFolder);
+            }
+        }
+
+        /// <summary>
+        /// Gets the run directies from the last n runs
+        /// </summary>
+        /// <param name="numberOfDays"></param>
+        /// <param name="inputFolder"></param>
+        /// <returns></returns>
+        static MetaMorpheusRunResultsDirectories[] GetRunDirectories(int numberOfDays, string inputFolder)
+        {
+            // get results from last n runs
+            MetaMorpheusRunResultsDirectories[] runResults = new MetaMorpheusRunResultsDirectories[numberOfDays];
+
+            // get last regular run result (first thing to run)
+            List<DirectoryInfo> regularRunDirectories = new DirectoryInfo(inputFolder).GetDirectories()
+                .Where(v => v.Name.Contains(ClassicSearchLabel))
+                .OrderByDescending(v => v.CreationTime)
+                .Take(numberOfDays)
+                .OrderBy(v => v.CreationTime).ToList();
+
+            // foreach regular run, find all other runs with labels other than Classic
+            for (int i = 0; i < regularRunDirectories.Count; i++)
+            {
+                DirectoryInfo regularRunDir = regularRunDirectories[i];
+
+                Dictionary<string, DirectoryInfo> directoryInfos = new Dictionary<string, DirectoryInfo> { { ClassicSearchLabel, regularRunDir } };
+
+                var ok = regularRunDir.Name.Split(new char[] { '[' });
+                string timestamp = regularRunDir.Name.Split(new char[] { '[' })[1].TrimEnd(new char[] { ']' });
+
+                var otherLabels = Labels.Where(l => l != ClassicSearchLabel).ToList();
+
+                foreach (string label in otherLabels)
                 {
-                    csv.WriteHeader<MetaMorpheusRunResult>();
-                    foreach (var item in runResults.Where(run => run != null)
-                        .Select(specificResult => specificResult.ParsedRunResult))
-                    {
-                        csv.NextRecord();
-                        csv.WriteRecord<MetaMorpheusRunResult>(item);
-                    }
+                    DirectoryInfo otherRunDirectory = new DirectoryInfo(inputFolder)
+                        .GetDirectories()
+                        .Where(v => v.Name.Contains(label) && v.Name.Contains(timestamp))
+                        .OrderByDescending(v => v.CreationTime)
+                        .Take(numberOfDays)
+                        .OrderBy(v => v.CreationTime)
+                        .FirstOrDefault();
+
+                    directoryInfos.Add(label, otherRunDirectory);
                 }
 
-                // delete old search results (keeps 1 result for every 7 days, except it keeps all of the last 5 days)
-                List<DirectoryInfo> directoriesToPotentiallyDelete = new DirectoryInfo(p.Object.InputFolder)
+                runResults[i] = new MetaMorpheusRunResultsDirectories(directoryInfos);
+            }
+            return runResults;
+        }
+
+        /// <summary>
+        /// Writes the result parsing to a new csv file
+        /// </summary>
+        /// <param name="outputFolder"></param>
+        /// <param name="parsedResults"></param>
+        static void WriteParsingResults(string outputFolder, MetaMorpheusRunResultsDirectories[] parsedResults) 
+        {
+            using (var csv = new CsvWriter(new StreamWriter(
+                        File.Create(Path.Combine(outputFolder, "ProcessedResults.csv"))),
+                        new CsvConfiguration(System.Globalization.CultureInfo.InvariantCulture)))
+            {
+                csv.WriteHeader<MetaMorpheusRunResult>();
+                foreach (var item in parsedResults.Where(run => run != null)
+                    .Select(specificResult => specificResult.ParsedRunResult))
+                {
+                    csv.NextRecord();
+                    csv.WriteRecord<MetaMorpheusRunResult>(item);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Deletes old search results 
+        /// Keeps 1 result for every 7 days
+        /// Keeps the last 5 days
+        /// </summary>
+        static void CleanUpOldRunDirectories(string inputFolder)
+        {
+            // aggregate all task result directories
+            List<DirectoryInfo> directoriesToPotentiallyDelete = new DirectoryInfo(inputFolder)
                     .GetDirectories()
                     .OrderByDescending(v => v.CreationTime).ToList();
 
-                // delete old calibrated and averaged files
-                foreach (string mzml in Directory.GetFiles(p.Object.InputFolder, "*", SearchOption.AllDirectories).Where(file => file.EndsWith(".mzML")))
-                    File.Delete(mzml);
+            DeleteDatabaseIndexFolders(inputFolder);
+            DeleteOldMzMLFilesFromCalibrationOrAveraging(inputFolder);
 
-                // delete old database index files
-                var indexedDatabaseDirectoryPathClassic = Path.Combine(Path.GetDirectoryName(p.Object.InputFolder.ToString()), "DataAndRunSettings", "Classic", "DatabaseIndex");
-                var indexedDatabaseDirectoryPathNonSpecific = Path.Combine(Path.GetDirectoryName(p.Object.InputFolder.ToString()), "DataAndRunSettings", "Nonspecific", "DatabaseIndex");
-                directoriesToPotentiallyDelete.AddRange( new DirectoryInfo(indexedDatabaseDirectoryPathClassic)
-                    .GetDirectories()
-                    .OrderByDescending(v => v.CreationTime).ToList());
-                directoriesToPotentiallyDelete.AddRange(new DirectoryInfo(indexedDatabaseDirectoryPathNonSpecific)
-                    .GetDirectories()
-                    .OrderByDescending(v => v.CreationTime).ToList());
+            DateTime dateToStartDeletingAt = new DateTime(2018, 12, 9);
 
-                DateTime dateToStartDeletingAt = new DateTime(2018, 12, 9);
+            directoriesToPotentiallyDelete = directoriesToPotentiallyDelete
+                .Take(directoriesToPotentiallyDelete.Count)
+                .Where(v => v.CreationTime.Date.CompareTo(dateToStartDeletingAt) > 0)
+                .ToList();
 
-                directoriesToPotentiallyDelete = directoriesToPotentiallyDelete
-                    .Take(directoriesToPotentiallyDelete.Count)
-                    .Where(v => v.CreationTime.Date.CompareTo(dateToStartDeletingAt) > 0)
-                    .ToList();
+            var datesToKeep = new List<DateTime>();
 
-                var datesToKeep = new List<DateTime>();
-
-                int weeks = 0;
-                while (!datesToKeep.Any() || datesToKeep.Last().CompareTo(DateTime.Now) < 0)
-                {
-                    datesToKeep.Add(dateToStartDeletingAt.Date.AddDays(weeks * 7));
-                    weeks++;
-                }
-
-                for (int d = 0; d < 5; d++)
-                {
-                    datesToKeep.Add(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day - d).Date);
-                }
-
-                var directoriesToDelete = directoriesToPotentiallyDelete.Where(v => !datesToKeep.Contains(v.CreationTime.Date)).ToList();
-
-                foreach (DirectoryInfo directory in directoriesToDelete)
-                {
-                    Directory.Delete(directory.FullName, true);
-                }
+            int weeks = 0;
+            while (!datesToKeep.Any() || datesToKeep.Last().CompareTo(DateTime.Now) < 0)
+            {
+                datesToKeep.Add(dateToStartDeletingAt.Date.AddDays(weeks * 7));
+                weeks++;
             }
+
+            for (int d = 0; d < 5; d++)
+                datesToKeep.Add(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day - d).Date);
+            
+
+            var directoriesToDelete = directoriesToPotentiallyDelete.Where(v => !datesToKeep.Contains(v.CreationTime.Date)).ToList();
+
+            foreach (DirectoryInfo directory in directoriesToDelete)
+                Directory.Delete(directory.FullName, true);
+            
+        }
+
+        /// <summary>
+        /// Deletes all .mzML files in the MetaMorpheus output directories
+        /// </summary>
+        /// <param name="inputFolder"></param>
+        static void DeleteOldMzMLFilesFromCalibrationOrAveraging(string inputFolder)
+        {
+            foreach (string mzml in Directory.GetFiles(inputFolder, "*", SearchOption.AllDirectories).Where(file => file.EndsWith(".mzML")))
+                File.Delete(mzml);
+        }
+
+        /// <summary>
+        /// Deletes all Index files in the MetaMorpheus input directories
+        /// </summary>
+        /// <param name="inputFolder"></param>
+        static void DeleteDatabaseIndexFolders(string inputFolder)
+        {
+            var taskDirectory = Path.Combine(Path.GetDirectoryName(inputFolder), "DataAndRunSettings");
+            string[] tasksWithDatabaseIndex = new[] { "Classic", "Nonspecific", "Glyco", "XL" };
+
+            foreach (var databaseIndexDirPath in tasksWithDatabaseIndex.Select(p => Path.Combine(taskDirectory, p, "DatabaseIndex")))
+                if (Directory.Exists(databaseIndexDirPath))
+                    Directory.Delete(databaseIndexDirPath, true);
         }
     }
 
