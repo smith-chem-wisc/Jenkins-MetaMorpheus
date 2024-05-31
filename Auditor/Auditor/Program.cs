@@ -1,4 +1,6 @@
-﻿using Fclp;
+﻿using CsvHelper;
+using CsvHelper.Configuration;
+using Fclp;
 using Fclp.Internals.Extensions;
 using System;
 using System.Collections.Generic;
@@ -17,7 +19,7 @@ namespace Auditor
         public const string TopDownSearchLabel = "TopDown";
         public const string GlycoSearchLabel = "Glyco";
 
-        private static string[] labels = { ClassicSearchLabel, ModernSearchLabel,
+        public static string[] Labels = { ClassicSearchLabel, ModernSearchLabel,
             SemiSpecificSearchLabel, NonspecificSearchLabel, CrosslinkSearchLabel, TopDownSearchLabel, GlycoSearchLabel };
 
         public static void Main(string[] args)
@@ -67,7 +69,7 @@ namespace Auditor
                     var ok = regularRunDir.Name.Split(new char[] { '[' });
                     string timestamp = regularRunDir.Name.Split(new char[] { '[' })[1].TrimEnd(new char[] { ']' });
 
-                    var otherLabels = labels.Where(l => l != ClassicSearchLabel).ToList();
+                    var otherLabels = Labels.Where(l => l != ClassicSearchLabel).ToList();
 
                     foreach (string label in otherLabels)
                     {
@@ -85,11 +87,11 @@ namespace Auditor
                     runResults[i] = new MetaMorpheusRunResultsDirectories(directoryInfos);
                 }
 
-                // set up output file
-                List<string> output = new List<string> { MetaMorpheusRunResult.CommaSeparatedHeader() };
+                //// set up output file
+                //List<string> output = new List<string> { MetaMorpheusRunResult.CommaSeparatedHeader() };
 
-                // add results from each run
-                runResults.Where(v => v != null).ForEach(v => output.Add(v.ParsedRunResult.ToString()));
+                //// add results from each run
+                //runResults.Where(v => v != null).ForEach(v => output.Add(v.ParsedRunResult.ToString()));
 
                 // write results
                 // create output directory
@@ -98,7 +100,20 @@ namespace Auditor
                     Directory.CreateDirectory(p.Object.OutputFolder);
                 }
 
-                File.WriteAllLines(Path.Combine(p.Object.OutputFolder, "ProcessedResults.csv"), output);
+                using (var csv = new CsvWriter(new StreamWriter(
+                    File.Create(Path.Combine(p.Object.OutputFolder, "ProcessedResults.csv"))), 
+                    new CsvConfiguration(System.Globalization.CultureInfo.InvariantCulture)))
+                {
+                    csv.WriteHeader<MetaMorpheusRunResult>();
+                    csv.NextRecord();
+                    foreach (var item in runResults.Where(run => run != null)
+                        .Select(specificResult => specificResult.ParsedRunResult))
+                    {
+                        csv.WriteRecord<MetaMorpheusRunResult>(item);
+                    }
+                }
+
+                //File.WriteAllLines(Path.Combine(p.Object.OutputFolder, "ProcessedResults.csv"), output);
 
                 // delete old search results (keeps 1 result for every 7 days, except it keeps all of the last 5 days)
                 List<DirectoryInfo> directoriesToPotentiallyDelete = new DirectoryInfo(p.Object.InputFolder)
