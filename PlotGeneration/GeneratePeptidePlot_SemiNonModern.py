@@ -56,5 +56,7 @@ for i, txt in enumerate(y3):
 	step = max(1, len(y3) // 10) 
 	if i % step == 0:
 		pyplot.annotate(txt, (x[i],y3[i]), fontsize=6)
+		
 # save the plot
+pyplot.tight_layout()
 pyplot.savefig(os.path.join(directory, 'PeptideReport_SemiNonModern.png'))

@@ -41,4 +41,5 @@ b5 = pyplot.bar(x, y5, width=width, bottom=y1+y2+y3+y4, color=colorDict["Search"
 
 pyplot.legend((b1[0], b2[0], b4[0]), ('Search', 'Calibration', 'GPTMD'), bbox_to_anchor=(1.1, 1.18), loc=1)
 
+pyplot.tight_layout()
 pyplot.savefig(os.path.join(directory, 'TaskTimeReport.png'))

@@ -57,4 +57,5 @@ for i, txt in enumerate(y3):
 		pyplot.annotate(txt, (x[i],y3[i]), fontsize=6)
 
 # save the plot
+pyplot.tight_layout()
 pyplot.savefig(os.path.join(directory, 'PeptideReport.png'))

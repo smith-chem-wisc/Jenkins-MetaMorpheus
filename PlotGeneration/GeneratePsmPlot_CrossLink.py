@@ -71,4 +71,5 @@ for i, txt in enumerate(y5):
 
 
 # save the plot
+pyplot.tight_layout()
 pyplot.savefig(os.path.join(directory, 'PSMReport_CrossLink.png'))
