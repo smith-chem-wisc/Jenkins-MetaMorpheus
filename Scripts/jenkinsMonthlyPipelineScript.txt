@@ -1,0 +1,20 @@
+pipeline {
+	agent any
+	stages {
+		stage ('Postprocessing') {
+			steps {
+				bat 'D:\\Jenkins_Runs\\Scripts\\m1_montlyPostProcessScript.bat'
+			}
+		}
+		stage ('Plotting') {
+			steps {
+				bat 'D:\\Jenkins_Runs\\Scripts\\m2_monthlyPlotGeneration.bat'
+			}
+		}
+		stage ('Email') {
+			steps {
+				powershell 'D:\\Jenkins_Runs\\Scripts\\m3_montlyEmailResults.bat'
+			}
+		}
+	}
+}

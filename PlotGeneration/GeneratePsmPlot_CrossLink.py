@@ -1,8 +1,11 @@
 import matplotlib.pyplot as pyplot
 import pandas
+import sys
+import os
 
+directory = str(sys.argv[1])
 # read the csv
-df = pandas.read_csv("D:/Jenkins_Runs/Results/ProcessedResults.csv")
+df = pandas.read_csv(os.path.join(directory, 'ProcessedResults.csv'))
 colors = pandas.read_csv("D://Jenkins_Runs/PlotGeneration/PlotColorDict.csv")
 colorDict = dict(zip(colors["Label"], colors["Color"]))
 
@@ -29,10 +32,13 @@ b3 = pyplot.plot(x, y3, color=colorDict["Loop"])
 b4 = pyplot.plot(x, y4, color=colorDict["Crosslink Single"])
 b5 = pyplot.plot(x, y5, color=colorDict["Deadend"])
 
-# set up x axis ticks
-locs = [0,1,2,3,4]
-labels = [x[0].split(' ',1)[0], x[1].split(' ',1)[0], x[2].split(' ',1)[0], x[3].split(' ',1)[0], x[4].split(' ',1)[0]]
-pyplot.xticks(locs, labels, fontsize=8)
+# Set up x-axis ticks
+n = min(20, len(x))  # Limit to 20 ticks or the number of data points, whichever is smaller
+step = len(x) // n
+locs = range(0, len(x), step)
+labels = [x[i].split(' ',1)[0] for i in locs]
+rotation = 45 if len(x) > 10 else 0
+pyplot.xticks(locs, labels, rotation=rotation, fontsize=8)
 
 # set up y axis limits
 ymin, ymax = pyplot.ylim()
@@ -43,15 +49,26 @@ pyplot.legend((b1[0], b2[0], b3[0], b4[0], b5[0]), ('Interlink CSMs', 'Intralink
 
 # label data points
 for i, txt in enumerate(y1):
-    pyplot.annotate(txt, (x[i],y1[i]), fontsize=6)
+	step = max(1, len(y1) // 10) 
+	if i % step == 0:
+		pyplot.annotate(txt, (x[i],y1[i]), fontsize=6)
 for i, txt in enumerate(y2):
-    pyplot.annotate(txt, (x[i],y2[i]), fontsize=6)
+	step = max(1, len(y2) // 10) 
+	if i % step == 0:
+		pyplot.annotate(txt, (x[i],y2[i]), fontsize=6)
 for i, txt in enumerate(y3):
-    pyplot.annotate(txt, (x[i],y3[i]), fontsize=6)
+	step = max(1, len(y3) // 10) 
+	if i % step == 0:
+		pyplot.annotate(txt, (x[i],y3[i]), fontsize=6)
 for i, txt in enumerate(y4):
-    pyplot.annotate(txt, (x[i],y4[i]), fontsize=6)
+	step = max(1, len(y4) // 10) 
+	if i % step == 0:
+		pyplot.annotate(txt, (x[i],y4[i]), fontsize=6)
 for i, txt in enumerate(y5):
-    pyplot.annotate(txt, (x[i],y5[i]), fontsize=6)
+	step = max(1, len(y5) // 10) 
+	if i % step == 0:
+		pyplot.annotate(txt, (x[i],y5[i]), fontsize=6)
+
 
 # save the plot
-pyplot.savefig('D:/Jenkins_Runs/Results/PSMReport_CrossLink.png')
+pyplot.savefig(os.path.join(directory, 'PSMReport_CrossLink.png'))

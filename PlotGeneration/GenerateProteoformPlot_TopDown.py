@@ -1,8 +1,11 @@
 import matplotlib.pyplot as pyplot
 import pandas
+import sys
+import os
 
+directory = str(sys.argv[1])
 # read the csv
-df = pandas.read_csv("D:/Jenkins_Runs/Results/ProcessedResults.csv")
+df = pandas.read_csv(os.path.join(directory, 'ProcessedResults.csv'))
 colors = pandas.read_csv("D://Jenkins_Runs/PlotGeneration/PlotColorDict.csv")
 colorDict = dict(zip(colors["Label"], colors["Color"]))
 
@@ -22,15 +25,18 @@ y2 = df["TopDown Post-calibration Proteoforms"]
 y3 = df["TopDown Post-averaging Proteoforms"]
 y4 = df["TopDown Post-GPTMD Proteoforms"]
 
-b1 = pyplot.plot(x, y1, color=colorDict["Search"])
-b2 = pyplot.plot(x, y2, color=colorDict["Calibrate"])
-b3 = pyplot.plot(x, y3, color=colorDict["Average"])
-b4 = pyplot.plot(x, y4, color=colorDict["GPTMD"])
+b1 = pyplot.plot(x, y1, color=colorDict["TDSearch"])
+b2 = pyplot.plot(x, y2, color=colorDict["TDCalibrate"])
+b3 = pyplot.plot(x, y3, color=colorDict["TDAverage"])
+b4 = pyplot.plot(x, y4, color=colorDict["TDGPTMD"])
 
-# set up x axis ticks
-locs = [0,1,2,3,4]
-labels = [x[0].split(' ',1)[0], x[1].split(' ',1)[0], x[2].split(' ',1)[0], x[3].split(' ',1)[0], x[4].split(' ',1)[0]]
-pyplot.xticks(locs, labels, fontsize=8)
+# Set up x-axis ticks
+n = min(20, len(x))  # Limit to 20 ticks or the number of data points, whichever is smaller
+step = len(x) // n
+locs = range(0, len(x), step)
+labels = [x[i].split(' ',1)[0] for i in locs]
+rotation = 45 if len(x) > 10 else 0
+pyplot.xticks(locs, labels, rotation=rotation, fontsize=8)
 
 # set up y axis limits
 ymin, ymax = pyplot.ylim()
@@ -41,13 +47,21 @@ pyplot.legend((b1[0], b2[0], b3[0], b4[0]), ('Initial Search', 'Post-Calibration
 
 # label data points
 for i, txt in enumerate(y1):
-    pyplot.annotate(txt, (x[i],y1[i]), fontsize=6)
+	step = max(1, len(y1) // 10) 
+	if i % step == 0:
+		pyplot.annotate(txt, (x[i],y1[i]), fontsize=6)
 for i, txt in enumerate(y2):
-    pyplot.annotate(txt, (x[i],y2[i]), fontsize=6)
+	step = max(1, len(y2) // 10) 
+	if i % step == 0:
+		pyplot.annotate(txt, (x[i],y2[i]), fontsize=6)
 for i, txt in enumerate(y3):
-    pyplot.annotate(txt, (x[i],y3[i]), fontsize=6)
+	step = max(1, len(y3) // 10) 
+	if i % step == 0:
+		pyplot.annotate(txt, (x[i],y3[i]), fontsize=6)
 for i, txt in enumerate(y4):
-    pyplot.annotate(txt, (x[i],y4[i]), fontsize=6)
+	step = max(1, len(y4) // 10) 
+	if i % step == 0:
+		pyplot.annotate(txt, (x[i],y4[i]), fontsize=6)
 
 # save the plot
-pyplot.savefig('D:/Jenkins_Runs/Results/ProteoformReport_TopDown.png')
+pyplot.savefig(os.path.join(directory, 'ProteoformReport_TopDown.png'))

@@ -3,6 +3,10 @@ Search,blue
 Calibrate,orange
 Average,red
 GPTMD,green
+TDSearch,navy
+TDCalibrate,darkgoldenrod
+TDAverage,darkred
+TDGPTMD,darkgreen
 Semi-Specific,indigo
 Non-Specific,steelblue
 XL,mediumseagreen
