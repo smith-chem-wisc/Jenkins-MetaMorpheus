@@ -4,6 +4,8 @@
 import os
 import re
 import requests
+import sys
+from datetime import date
 from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
 from email.MIMEImage import MIMEImage
@@ -17,12 +19,13 @@ email_server_host = 'smtp.gmail.com'
 port = 587
 email_username = strFrom
 email_password = email[1]
-
-
+reportdirectory = str(sys.argv[1])
+date = date.today().strftime("%Y/%m/%d")
+reportType = 'Monthly' if "Monthly" in reportdirectory else 'Daily'
 
 # Create the root message and fill in the from, to, and subject headers
 msgRoot = MIMEMultipart('related')
-msgRoot['Subject'] = 'Jenkins Build Results'
+msgRoot['Subject'] = '{reportType} Jenkins Build Results {date}'.format(date = date, reportType=reportType)
 msgRoot['From'] = strFrom
 msgRoot['To'] = strTo
 msgRoot.preamble = 'This is a multi-part message in MIME format.'
@@ -93,16 +96,16 @@ msgAlternative.attach(msgText)
 
 # List of images to attach
 image_paths = [
-    'D:/Jenkins_Runs/Results/PSMReport.png',
-    'D:/Jenkins_Runs/Results/TaskTimeReport.png',
-    'D:/Jenkins_Runs/Results/PeptideReport.png',
-    'D:/Jenkins_Runs/Results/PSMReport_TopDown.png',
-    'D:/Jenkins_Runs/Results/TaskTimeReport_TopDown.png',
-    'D:/Jenkins_Runs/Results/ProteoformReport_TopDown.png',
-    'D:/Jenkins_Runs/Results/PSMReport_CrossLink.png',
-    'D:/Jenkins_Runs/Results/TaskTimeReport_SemiNonModernXLGlyco.png',
-    'D:/Jenkins_Runs/Results/PeptideReport_SemiNonModern.png',
-    'D:/Jenkins_Runs/Results/PSMReport_SemiNonModernGlyco.png',
+    os.path.join(reportdirectory, 'PSMReport.png'),
+    os.path.join(reportdirectory, 'TaskTimeReport.png'),
+    os.path.join(reportdirectory, 'PeptideReport.png'),
+    os.path.join(reportdirectory, 'PSMReport_TopDown.png'),
+    os.path.join(reportdirectory, 'TaskTimeReport_TopDown.png'),
+    os.path.join(reportdirectory, 'ProteoformReport_TopDown.png'),
+    os.path.join(reportdirectory, 'PSMReport_CrossLink.png'),
+    os.path.join(reportdirectory, 'TaskTimeReport_SemiNonModernXLGlyco.png'),
+    os.path.join(reportdirectory, 'PeptideReport_SemiNonModern.png'),
+    os.path.join(reportdirectory, 'PSMReport_SemiNonModernGlyco.png'),
 ]
 
 # Attach images to the email
