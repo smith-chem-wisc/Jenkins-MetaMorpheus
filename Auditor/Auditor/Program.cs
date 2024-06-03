@@ -53,7 +53,11 @@ namespace Auditor
                     Directory.CreateDirectory(p.Object.OutputFolder);
 
                 WriteParsingResults(p.Object.OutputFolder, runResults);
-                CleanUpOldRunDirectories(p.Object.InputFolder);
+
+                // Only delete unused runs for the daily report
+                // CAREFUL: if the number of days to report changes in the Daily runs, this will need to be adjusted
+                if (p.Object.NumberOfDaysToReport == 5) 
+                    CleanUpOldRunDirectories(p.Object.InputFolder);
             }
         }
 
