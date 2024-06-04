@@ -187,16 +187,16 @@ namespace Auditor
                                     case 3: 
                                         TopDownPostCalibrationSearchTimeInSeconds = timeInSeconds;
                                         break;
-                                    case 40:  // TODO: After avraging is in command line, change these numbers
+                                    case 4:  // TODO: After avraging is in command line, change these numbers
                                         TopDownAveragingTimeInSeconds = timeInSeconds;
                                         break;
-                                    case 4:
+                                    case 5:
                                         TopDownPostAveragingSearchTimeInSeconds = timeInSeconds;
                                         break;
-                                    case 5: 
+                                    case 6: 
                                         TopDownGptmdTimeInSeconds = timeInSeconds;
                                         break;
-                                    case 6:
+                                    case 7:
                                         TopDownPostGPTMDSearchTimeInSeconds = timeInSeconds;
                                         break;
                                 }
@@ -244,11 +244,10 @@ namespace Auditor
                                     case 3:
                                         TopDownPostCalibrationSearchPsms = numPsms;
                                         break;
-                                    //case 5:
-                                    case 4: // TODO: After avraging is in command line, change these numbers
+                                    case 5: 
                                         TopDownPostAveragingSearchPsms = numPsms;
                                         break;
-                                    case 6:
+                                    case 7:
                                         TopDownPostGPTMDSearchPsms = numPsms;
                                         break;
                                 }
@@ -296,11 +295,10 @@ namespace Auditor
                                     case 3:
                                         TopDownPostCalibrationSearchProteoforms = numPsms;
                                         break;
-                                    //case 5:
-                                    case 4: // TODO: After avraging is in command line, change these numbers
+                                    case 5: 
                                         TopDownPostAveragingSearchProteoforms = numPsms;
                                         break;
-                                    case 6:
+                                    case 7:
                                         TopDownPostGPTMDSearchProteoforms = numPsms;
                                         break;
                                 }
