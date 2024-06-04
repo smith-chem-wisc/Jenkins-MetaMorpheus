@@ -131,6 +131,7 @@ namespace Auditor
                 }
 
                 var lines = File.ReadAllLines(allResultsTxtFile.Value.FullName);
+                var taskCount = lines.Count(p => p.Contains("Time to run task:"));
                 foreach (var line in lines)
                 {
                     if (line.Contains("Time to run task:"))
@@ -176,30 +177,54 @@ namespace Auditor
                                 SemiSpecificSearchTimeInSeconds = timeInSeconds;
                                 break;
                             case Program.TopDownSearchLabel:
-                                switch (taskNumberReading)
-                                {
-                                    case 1:
-                                        TopDownInitialSearchTimeInSeconds = timeInSeconds;
-                                        break;
-                                    case 2:
-                                        TopDownCalibrationTimeInSeconds = timeInSeconds;
-                                        break;
-                                    case 3: 
-                                        TopDownPostCalibrationSearchTimeInSeconds = timeInSeconds;
-                                        break;
-                                    case 4:  // TODO: After avraging is in command line, change these numbers
-                                        TopDownAveragingTimeInSeconds = timeInSeconds;
-                                        break;
-                                    case 5:
-                                        TopDownPostAveragingSearchTimeInSeconds = timeInSeconds;
-                                        break;
-                                    case 6: 
-                                        TopDownGptmdTimeInSeconds = timeInSeconds;
-                                        break;
-                                    case 7:
-                                        TopDownPostGPTMDSearchTimeInSeconds = timeInSeconds;
-                                        break;
-                                }
+                                // differential task count is due to averaging command line not function for several jenkins runs
+                                if (taskCount == 6)
+                                    switch (taskNumberReading)
+                                    {
+                                        case 1:
+                                            TopDownInitialSearchTimeInSeconds = timeInSeconds;
+                                            break;
+                                        case 2:
+                                            TopDownCalibrationTimeInSeconds = timeInSeconds;
+                                            break;
+                                        case 3:
+                                            TopDownPostCalibrationSearchTimeInSeconds = timeInSeconds;
+                                            break;
+                                        case 4:
+                                            TopDownPostAveragingSearchTimeInSeconds = timeInSeconds;
+                                            break;
+                                        case 5:
+                                            TopDownGptmdTimeInSeconds = timeInSeconds;
+                                            break;
+                                        case 6:
+                                            TopDownPostGPTMDSearchTimeInSeconds = timeInSeconds;
+                                            break;
+                                    }
+                                else if (taskCount == 7)
+                                    switch (taskNumberReading)
+                                    {
+                                        case 1:
+                                            TopDownInitialSearchTimeInSeconds = timeInSeconds;
+                                            break;
+                                        case 2:
+                                            TopDownCalibrationTimeInSeconds = timeInSeconds;
+                                            break;
+                                        case 3: 
+                                            TopDownPostCalibrationSearchTimeInSeconds = timeInSeconds;
+                                            break;
+                                        case 4:  // TODO: After avraging is in command line, change these numbers
+                                            TopDownAveragingTimeInSeconds = timeInSeconds;
+                                            break;
+                                        case 5:
+                                            TopDownPostAveragingSearchTimeInSeconds = timeInSeconds;
+                                            break;
+                                        case 6: 
+                                            TopDownGptmdTimeInSeconds = timeInSeconds;
+                                            break;
+                                        case 7:
+                                            TopDownPostGPTMDSearchTimeInSeconds = timeInSeconds;
+                                            break;
+                                    }
                                 break;
                             case Program.GlycoSearchLabel:
                                 GlycoSearchTimeInSeconds = timeInSeconds;
@@ -236,21 +261,39 @@ namespace Auditor
                                 SemiSpecificPsms = numPsms;
                                 break;
                             case Program.TopDownSearchLabel:
-                                switch (taskNumberReading)
-                                {
-                                    case 1:
-                                        TopDownInitialSearchPsms = numPsms;
-                                        break;
-                                    case 3:
-                                        TopDownPostCalibrationSearchPsms = numPsms;
-                                        break;
-                                    case 5: 
-                                        TopDownPostAveragingSearchPsms = numPsms;
-                                        break;
-                                    case 7:
-                                        TopDownPostGPTMDSearchPsms = numPsms;
-                                        break;
-                                }
+                                // differential task count is due to averaging command line not function for several jenkins runs
+                                if (taskCount == 6)
+                                    switch (taskNumberReading)
+                                    {
+                                        case 1:
+                                            TopDownInitialSearchPsms = numPsms;
+                                            break;
+                                        case 3:
+                                            TopDownPostCalibrationSearchPsms = numPsms;
+                                            break;
+                                        case 4:
+                                            TopDownPostAveragingSearchPsms = numPsms;
+                                            break;
+                                        case 6:
+                                            TopDownPostGPTMDSearchPsms = numPsms;
+                                            break;
+                                    }
+                                else if (taskCount == 7)
+                                    switch (taskNumberReading)
+                                    {
+                                        case 1:
+                                            TopDownInitialSearchPsms = numPsms;
+                                            break;
+                                        case 3:
+                                            TopDownPostCalibrationSearchPsms = numPsms;
+                                            break;
+                                        case 5: 
+                                            TopDownPostAveragingSearchPsms = numPsms;
+                                            break;
+                                        case 7:
+                                            TopDownPostGPTMDSearchPsms = numPsms;
+                                            break;
+                                    }
                                 break;
                             case Program.GlycoSearchLabel:
                                 GlycoSearchPsms = numPsms;
@@ -287,21 +330,39 @@ namespace Auditor
                                 SemiSpecificPeptides = numPsms;
                                 break;
                             case Program.TopDownSearchLabel:
-                                switch (taskNumberReading)
-                                {
-                                    case 1:
-                                        TopDownInitialSearchProteoforms = numPsms;
-                                        break;
-                                    case 3:
-                                        TopDownPostCalibrationSearchProteoforms = numPsms;
-                                        break;
-                                    case 5: 
-                                        TopDownPostAveragingSearchProteoforms = numPsms;
-                                        break;
-                                    case 7:
-                                        TopDownPostGPTMDSearchProteoforms = numPsms;
-                                        break;
-                                }
+                                // differential task count is due to averaging command line not function for several jenkins runs
+                                if (taskCount == 6) 
+                                    switch (taskNumberReading)
+                                    {
+                                        case 1:
+                                            TopDownInitialSearchProteoforms = numPsms;
+                                            break;
+                                        case 3:
+                                            TopDownPostCalibrationSearchProteoforms = numPsms;
+                                            break;
+                                        case 4:
+                                            TopDownPostAveragingSearchProteoforms = numPsms;
+                                            break;
+                                        case 6:
+                                            TopDownPostGPTMDSearchProteoforms = numPsms;
+                                            break;
+                                    }
+                                else if (taskCount == 7)
+                                    switch (taskNumberReading)
+                                    {
+                                        case 1:
+                                            TopDownInitialSearchProteoforms = numPsms;
+                                            break;
+                                        case 3:
+                                            TopDownPostCalibrationSearchProteoforms = numPsms;
+                                            break;
+                                        case 5: 
+                                            TopDownPostAveragingSearchProteoforms = numPsms;
+                                            break;
+                                        case 7:
+                                            TopDownPostGPTMDSearchProteoforms = numPsms;
+                                            break;
+                                    }
                                 break;
                             case Program.GlycoSearchLabel:
                                 GlycoSearchPeptides = numPsms;

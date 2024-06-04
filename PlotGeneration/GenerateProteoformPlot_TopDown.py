@@ -43,7 +43,7 @@ ymin, ymax = pyplot.ylim()
 pyplot.ylim(ymin - 1000, ymax + 1000)
 
 # set up legend
-pyplot.legend((b1[0], b2[0], b3[0], b4[0]), ('Initial Search', 'Post-Calibration', 'Post-Averaging' 'Post-GPTMD'), loc=1, bbox_to_anchor=(1.1, 1.18))
+pyplot.legend((b1[0], b2[0], b3[0], b4[0]), ('Initial Search', 'Post-Calibration', 'Post-Averaging', 'Post-GPTMD'), loc=1, bbox_to_anchor=(1.1, 1.18))
 
 # label data points
 for i, txt in enumerate(y1):
