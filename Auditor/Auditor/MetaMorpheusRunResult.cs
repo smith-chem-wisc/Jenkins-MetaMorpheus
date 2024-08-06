@@ -15,66 +15,66 @@ namespace Auditor
         [Name("Date")] public DateTime DateTime { get; private set; }
 
         // Bottom Up results
-        [Name("Initial Search PSMs")] public int InitialSearchTargetPsms { get; private set; }
-        [Name("Initial Search Peptides")] public int InitialSearchTargetPeptides { get; private set; }
-        [Name("Post-calibration PSMs")] public int PostCalibrationTargetPsms { get; private set; }
-        [Name("Post-calibration Peptides")] public int PostCalibrationTargetPeptides { get; private set; }
-        [Name("Post-GPTMD PSMs")] public int PostGptmdTargetPsms { get; private set; }
-        [Name("Post-GPTMD Peptides")] public int PostGptmdTargetPeptides { get; private set; }
-        [Name("Initial Search Time")] public double InitialSearchTimeInSeconds { get; private set; }
-        [Name("Calibration Time")] public double CalibrationTimeInSeconds { get; private set; }
-        [Name("Post-calibration Search Time")] public double PostCalibrationSearchTimeInSeconds { get; private set; }
-        [Name("GPTMD Time")] public double GptmdTimeInSeconds { get; private set; }
-        [Name("Post-GPTMD Search Time")] public double PostGptmdSearchTimeInSeconds { get; private set; }
+        [Name("Initial Search PSMs")] public int? InitialSearchTargetPsms { get; private set; }
+        [Name("Initial Search Peptides")] public int? InitialSearchTargetPeptides { get; private set; }
+        [Name("Post-calibration PSMs")] public int? PostCalibrationTargetPsms { get; private set; }
+        [Name("Post-calibration Peptides")] public int? PostCalibrationTargetPeptides { get; private set; }
+        [Name("Post-GPTMD PSMs")] public int? PostGptmdTargetPsms { get; private set; }
+        [Name("Post-GPTMD Peptides")] public int? PostGptmdTargetPeptides { get; private set; }
+        [Name("Initial Search Time")] public double? InitialSearchTimeInSeconds { get; private set; }
+        [Name("Calibration Time")] public double? CalibrationTimeInSeconds { get; private set; }
+        [Name("Post-calibration Search Time")] public double? PostCalibrationSearchTimeInSeconds { get; private set; }
+        [Name("GPTMD Time")] public double? GptmdTimeInSeconds { get; private set; }
+        [Name("Post-GPTMD Search Time")] public double? PostGptmdSearchTimeInSeconds { get; private set; }
 
         // Cross Link
-        [Name("Interlink CSMs")] public int InterlinkCsms { get; private set; }
-        [Name("Intralink CSMs")] public int IntralinkCsms { get; private set; }
-        [Name("Loop CSMs")] public int LoopCsms { get; private set; }
-        [Name("Deadend CSMs")] public int DeadendCsms { get; private set; }
-        [Name("Crosslink Single PSMs")] public int CrosslinkSinglePsms { get; private set; }
-        [Name("Crosslink Single Peptides")] public int CrosslinkSinglePeptides { get; private set; }
-        [Name("XL Search Time")] public double CrosslinkSearchTimeInSeconds { get; private set; }
+        [Name("Interlink CSMs")] public int? InterlinkCsms { get; private set; }
+        [Name("Intralink CSMs")] public int? IntralinkCsms { get; private set; }
+        [Name("Loop CSMs")] public int? LoopCsms { get; private set; }
+        [Name("Deadend CSMs")] public int? DeadendCsms { get; private set; }
+        [Name("Crosslink Single PSMs")] public int? CrosslinkSinglePsms { get; private set; }
+        [Name("Crosslink Single Peptides")] public int? CrosslinkSinglePeptides { get; private set; }
+        [Name("XL Search Time")] public double? CrosslinkSearchTimeInSeconds { get; private set; }
 
         // O-Glyco Search
-        [Name("Glyco Search PSMs")] public int GlycoSearchPsms { get; private set; }
-        [Name("Glyco Search Peptides")] public int GlycoSearchPeptides { get; private set; }
-        [Name("Glyco Search Time")] public double GlycoSearchTimeInSeconds { get; private set; }
+        [Name("Glyco Search PSMs")] public int? GlycoSearchPsms { get; private set; }
+        [Name("Glyco Search Peptides")] public int? GlycoSearchPeptides { get; private set; }
+        [Name("Glyco Search Time")] public double? GlycoSearchTimeInSeconds { get; private set; }
 
         // Semi-Specific Search
-        [Name("Semispecific PSMs")] public int SemiSpecificPsms { get; private set; }
-        [Name("Semispecific Peptides")] public int SemiSpecificPeptides { get; private set; }
-        [Name("Semispecific Search Time")] public double SemiSpecificSearchTimeInSeconds { get; private set; }
+        [Name("Semispecific PSMs")] public int? SemiSpecificPsms { get; private set; }
+        [Name("Semispecific Peptides")] public int? SemiSpecificPeptides { get; private set; }
+        [Name("Semispecific Search Time")] public double? SemiSpecificSearchTimeInSeconds { get; private set; }
 
         // Non-Specific Search
-        [Name("Nonspecific PSMs")] public int NonSpecificPsms { get; private set; }
-        [Name("Nonspecific Peptides")] public int NonSpecificPeptides { get; private set; }
-        [Name("Nonspecific Search Time")] public double NonSpecificSearchTimeInSeconds { get; private set; }
+        [Name("Nonspecific PSMs")] public int? NonSpecificPsms { get; private set; }
+        [Name("Nonspecific Peptides")] public int? NonSpecificPeptides { get; private set; }
+        [Name("Nonspecific Search Time")] public double? NonSpecificSearchTimeInSeconds { get; private set; }
 
         // Modern Search
-        [Name("Modern Search PSMs")] public int ModernSearchPsms { get; private set; }
-        [Name("Modern Search Peptides")] public int ModernSearchPeptides { get; private set; }
-        [Name("Modern Search Time")] public double ModernSearchTimeInSeconds { get; private set; }
+        [Name("Modern Search PSMs")] public int? ModernSearchPsms { get; private set; }
+        [Name("Modern Search Peptides")] public int? ModernSearchPeptides { get; private set; }
+        [Name("Modern Search Time")] public double? ModernSearchTimeInSeconds { get; private set; }
 
         // Top Down
-        [Name("TopDown Initial PrSMs")] public double TopDownInitialSearchPsms { get; private set; }
-        [Name("TopDown Initial Proteoforms")] public double TopDownInitialSearchProteoforms { get; private set; }
-        [Name("TopDown Post-calibration PrSMs")] public double TopDownPostCalibrationSearchPsms { get; private set; }
-        [Name("TopDown Post-calibration Proteoforms")] public double TopDownPostCalibrationSearchProteoforms { get; private set; }
-        [Name("TopDown Post-averaging PrSMs")] public double TopDownPostAveragingSearchPsms { get; private set; }
-        [Name("TopDown Post-averaging Proteoforms")] public double TopDownPostAveragingSearchProteoforms { get; private set; }
-        [Name("TopDown Post-GPTMD PrSMs")] public double TopDownPostGPTMDSearchPsms { get; private set; }
-        [Name("TopDown Post-GPTMD Proteoforms")] public double TopDownPostGPTMDSearchProteoforms { get; private set; }
-        [Name("TopDown Initial Search Time")] public double TopDownInitialSearchTimeInSeconds { get; private set; }
-        [Name("TopDown Calibration Time")] public double TopDownCalibrationTimeInSeconds { get; private set; }
-        [Name("TopDown Post-calibration Search Time")] public double TopDownPostCalibrationSearchTimeInSeconds { get; private set; }
-        [Name("TopDown Averaging Time")] public double TopDownAveragingTimeInSeconds { get; private set; }
-        [Name("TopDown Post-averaging Search Time")] public double TopDownPostAveragingSearchTimeInSeconds { get; private set; }
-        [Name("TopDown GPTMD Time")] public double TopDownGptmdTimeInSeconds { get; private set; }
-        [Name("TopDown Post-GPTMD Search Time")] public double TopDownPostGPTMDSearchTimeInSeconds { get; private set; }
+        [Name("TopDown Initial PrSMs")] public double? TopDownInitialSearchPsms { get; private set; }
+        [Name("TopDown Initial Proteoforms")] public double? TopDownInitialSearchProteoforms { get; private set; }
+        [Name("TopDown Post-calibration PrSMs")] public double? TopDownPostCalibrationSearchPsms { get; private set; }
+        [Name("TopDown Post-calibration Proteoforms")] public double? TopDownPostCalibrationSearchProteoforms { get; private set; }
+        [Name("TopDown Post-averaging PrSMs")] public double? TopDownPostAveragingSearchPsms { get; private set; }
+        [Name("TopDown Post-averaging Proteoforms")] public double? TopDownPostAveragingSearchProteoforms { get; private set; }
+        [Name("TopDown Post-GPTMD PrSMs")] public double? TopDownPostGPTMDSearchPsms { get; private set; }
+        [Name("TopDown Post-GPTMD Proteoforms")] public double? TopDownPostGPTMDSearchProteoforms { get; private set; }
+        [Name("TopDown Initial Search Time")] public double? TopDownInitialSearchTimeInSeconds { get; private set; }
+        [Name("TopDown Calibration Time")] public double? TopDownCalibrationTimeInSeconds { get; private set; }
+        [Name("TopDown Post-calibration Search Time")] public double? TopDownPostCalibrationSearchTimeInSeconds { get; private set; }
+        [Name("TopDown Averaging Time")] public double? TopDownAveragingTimeInSeconds { get; private set; }
+        [Name("TopDown Post-averaging Search Time")] public double? TopDownPostAveragingSearchTimeInSeconds { get; private set; }
+        [Name("TopDown GPTMD Time")] public double? TopDownGptmdTimeInSeconds { get; private set; }
+        [Name("TopDown Post-GPTMD Search Time")] public double? TopDownPostGPTMDSearchTimeInSeconds { get; private set; }
 
         // protein groups for initial search (task 1)
-        public int InitialSearchProteinGroups { get; private set; }
+        public int? InitialSearchProteinGroups { get; private set; }
 
         /// <summary>
         /// There will be 4 allResults.txt files
@@ -241,24 +241,30 @@ namespace Auditor
                                 switch (taskNumberReading)
                                 {
                                     case 1:
-                                        InitialSearchTargetPsms = numPsms;
+                                        if (InitialSearchTargetPsms != null)
+                                            InitialSearchTargetPsms = numPsms; 
                                         break;
                                     case 3:
-                                        PostCalibrationTargetPsms = numPsms;
+                                        if (PostCalibrationTargetPsms != null)
+                                            PostCalibrationTargetPsms = numPsms;
                                         break;
                                     case 5:
-                                        PostGptmdTargetPsms = numPsms;
+                                        if (PostGptmdTargetPsms != null)
+                                            PostGptmdTargetPsms = numPsms;
                                         break;
                                 }
                                 break;
                             case Program.ModernSearchLabel:
-                                ModernSearchPsms = numPsms;
+                                if (ModernSearchPsms != null)
+                                    ModernSearchPsms = numPsms;
                                 break;
                             case Program.NonspecificSearchLabel:
-                                NonSpecificPsms = numPsms;
+                                if (NonSpecificPsms != null)
+                                    NonSpecificPsms = numPsms;
                                 break;
                             case Program.SemiSpecificSearchLabel:
-                                SemiSpecificPsms = numPsms;
+                                if (SemiSpecificPsms != null)
+                                    SemiSpecificPsms = numPsms;
                                 break;
                             case Program.TopDownSearchLabel:
                                 // differential task count is due to averaging command line not function for several jenkins runs
@@ -266,37 +272,46 @@ namespace Auditor
                                     switch (taskNumberReading)
                                     {
                                         case 1:
-                                            TopDownInitialSearchPsms = numPsms;
+                                            if (TopDownInitialSearchPsms != null)
+                                                TopDownInitialSearchPsms = numPsms;
                                             break;
                                         case 3:
-                                            TopDownPostCalibrationSearchPsms = numPsms;
+                                            if (TopDownPostCalibrationSearchPsms != null)
+                                                TopDownPostCalibrationSearchPsms = numPsms;
                                             break;
                                         case 4:
-                                            TopDownPostAveragingSearchPsms = numPsms;
+                                            if (TopDownPostAveragingSearchPsms != null)
+                                                TopDownPostAveragingSearchPsms = numPsms;
                                             break;
                                         case 6:
-                                            TopDownPostGPTMDSearchPsms = numPsms;
+                                            if (TopDownPostGPTMDSearchPsms != null)
+                                                TopDownPostGPTMDSearchPsms = numPsms;
                                             break;
                                     }
                                 else if (taskCount == 7)
                                     switch (taskNumberReading)
                                     {
                                         case 1:
-                                            TopDownInitialSearchPsms = numPsms;
+                                            if (TopDownInitialSearchPsms != null)
+                                                TopDownInitialSearchPsms = numPsms;
                                             break;
                                         case 3:
-                                            TopDownPostCalibrationSearchPsms = numPsms;
+                                            if (TopDownPostCalibrationSearchPsms != null)
+                                                TopDownPostCalibrationSearchPsms = numPsms;
                                             break;
-                                        case 5: 
-                                            TopDownPostAveragingSearchPsms = numPsms;
+                                        case 5:
+                                            if (TopDownPostAveragingSearchPsms != null)
+                                                TopDownPostAveragingSearchPsms = numPsms;
                                             break;
                                         case 7:
-                                            TopDownPostGPTMDSearchPsms = numPsms;
+                                            if (TopDownPostGPTMDSearchPsms != null)
+                                                TopDownPostGPTMDSearchPsms = numPsms;
                                             break;
                                     }
                                 break;
                             case Program.GlycoSearchLabel:
-                                GlycoSearchPsms = numPsms;
+                                if (GlycoSearchPsms != null)
+                                    GlycoSearchPsms = numPsms;
                                 break;
                         }
                     }
@@ -310,24 +325,30 @@ namespace Auditor
                                 switch (taskNumberReading)
                                 {
                                     case 1:
-                                        InitialSearchTargetPeptides = numPsms;
+                                        if (InitialSearchTargetPeptides != null)
+                                            InitialSearchTargetPeptides = numPsms;
                                         break;
                                     case 3:
-                                        PostCalibrationTargetPeptides = numPsms;
+                                        if (PostCalibrationTargetPeptides != null)
+                                            PostCalibrationTargetPeptides = numPsms;
                                         break;
                                     case 5:
-                                        PostGptmdTargetPeptides = numPsms;
+                                        if (PostGptmdTargetPeptides != null)
+                                            PostGptmdTargetPeptides = numPsms;
                                         break;
                                 }
                                 break;
                             case Program.ModernSearchLabel:
-                                ModernSearchPeptides = numPsms;
+                                if (ModernSearchPeptides != null)
+                                    ModernSearchPeptides = numPsms;
                                 break;
                             case Program.NonspecificSearchLabel:
-                                NonSpecificPeptides = numPsms;
+                                if (NonSpecificPeptides != null)
+                                    NonSpecificPeptides = numPsms;
                                 break;
                             case Program.SemiSpecificSearchLabel:
-                                SemiSpecificPeptides = numPsms;
+                                if (SemiSpecificPeptides != null)
+                                    SemiSpecificPeptides = numPsms;
                                 break;
                             case Program.TopDownSearchLabel:
                                 // differential task count is due to averaging command line not function for several jenkins runs
@@ -335,37 +356,46 @@ namespace Auditor
                                     switch (taskNumberReading)
                                     {
                                         case 1:
-                                            TopDownInitialSearchProteoforms = numPsms;
+                                            if (TopDownInitialSearchProteoforms != null)
+                                                TopDownInitialSearchProteoforms = numPsms;
                                             break;
                                         case 3:
-                                            TopDownPostCalibrationSearchProteoforms = numPsms;
+                                            if (TopDownPostCalibrationSearchProteoforms != null)
+                                                TopDownPostCalibrationSearchProteoforms = numPsms;
                                             break;
                                         case 4:
-                                            TopDownPostAveragingSearchProteoforms = numPsms;
+                                            if (TopDownPostAveragingSearchProteoforms != null)
+                                                TopDownPostAveragingSearchProteoforms = numPsms;
                                             break;
                                         case 6:
-                                            TopDownPostGPTMDSearchProteoforms = numPsms;
+                                            if (TopDownPostGPTMDSearchProteoforms != null)
+                                                TopDownPostGPTMDSearchProteoforms = numPsms;
                                             break;
                                     }
                                 else if (taskCount == 7)
                                     switch (taskNumberReading)
                                     {
                                         case 1:
-                                            TopDownInitialSearchProteoforms = numPsms;
+                                            if (TopDownInitialSearchProteoforms != null)
+                                                TopDownInitialSearchProteoforms = numPsms;
                                             break;
                                         case 3:
-                                            TopDownPostCalibrationSearchProteoforms = numPsms;
+                                            if (TopDownPostCalibrationSearchProteoforms != null)
+                                                TopDownPostCalibrationSearchProteoforms = numPsms;
                                             break;
-                                        case 5: 
-                                            TopDownPostAveragingSearchProteoforms = numPsms;
+                                        case 5:
+                                            if (TopDownPostAveragingSearchProteoforms != null)
+                                                TopDownPostAveragingSearchProteoforms = numPsms;
                                             break;
                                         case 7:
-                                            TopDownPostGPTMDSearchProteoforms = numPsms;
+                                            if (TopDownPostGPTMDSearchProteoforms != null)
+                                                TopDownPostGPTMDSearchProteoforms = numPsms;
                                             break;
                                     }
                                 break;
                             case Program.GlycoSearchLabel:
-                                GlycoSearchPeptides = numPsms;
+                                if (GlycoSearchPeptides != null)
+                                    GlycoSearchPeptides = numPsms;
                                 break;
                         }
                     }
@@ -373,31 +403,39 @@ namespace Auditor
                              && allResultsTxtFile.Key.Equals(Program.ClassicSearchLabel)
                              && taskNumberReading == 1)
                     {
-                        int numProteinGroups = int.Parse(line.Split(':').Last().Trim());
-                        InitialSearchProteinGroups = numProteinGroups;
+                        if (InitialSearchProteinGroups != null)
+                        {
+                            int numProteinGroups = int.Parse(line.Split(':').Last().Trim());
+                            InitialSearchProteinGroups = numProteinGroups;
+                        }      
                     }
 
                     // crosslink search results
                     else if (line.Contains("Target inter-crosslinks within 1% FDR:"))
                     {
-                        InterlinkCsms = int.Parse(line.Split(':').Last().Trim());
+                        if (InterlinkCsms != null)
+                            InterlinkCsms = int.Parse(line.Split(':').Last().Trim());
                     }
                     else if (line.Contains("Target intra-crosslinks within 1% FDR:"))
                     {
-                        IntralinkCsms = int.Parse(line.Split(':').Last().Trim());
+                        if (IntralinkCsms != null)
+                            IntralinkCsms = int.Parse(line.Split(':').Last().Trim());
                     }
                     else if (line.Contains("Target single peptides within 1% FDR:"))
                     {
-                        CrosslinkSinglePsms =
+                        if (CrosslinkSinglePsms != null)
+                            CrosslinkSinglePsms =
                             int.Parse(line.Split(':').Last().Trim());
                     }
                     else if (line.Contains("Target loop-linked peptides within 1% FDR:"))
                     {
-                        LoopCsms = int.Parse(line.Split(':').Last().Trim());
+                        if (LoopCsms != null)
+                            LoopCsms = int.Parse(line.Split(':').Last().Trim());
                     }
                     else if (line.Contains("Target deadend peptides within 1% FDR:"))
                     {
-                        DeadendCsms = int.Parse(line.Split(':').Last().Trim());
+                        if (DeadendCsms != null)
+                            DeadendCsms = int.Parse(line.Split(':').Last().Trim());
                     }
                 }
             }
