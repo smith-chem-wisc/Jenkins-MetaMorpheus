@@ -241,29 +241,29 @@ namespace Auditor
                                 switch (taskNumberReading)
                                 {
                                     case 1:
-                                        if (InitialSearchTargetPsms != null)
+                                        if (InitialSearchTargetPsms == null)
                                             InitialSearchTargetPsms = numPsms; 
                                         break;
                                     case 3:
-                                        if (PostCalibrationTargetPsms != null)
+                                        if (PostCalibrationTargetPsms == null)
                                             PostCalibrationTargetPsms = numPsms;
                                         break;
                                     case 5:
-                                        if (PostGptmdTargetPsms != null)
+                                        if (PostGptmdTargetPsms == null)
                                             PostGptmdTargetPsms = numPsms;
                                         break;
                                 }
                                 break;
                             case Program.ModernSearchLabel:
-                                if (ModernSearchPsms != null)
+                                if (ModernSearchPsms == null)
                                     ModernSearchPsms = numPsms;
                                 break;
                             case Program.NonspecificSearchLabel:
-                                if (NonSpecificPsms != null)
+                                if (NonSpecificPsms == null)
                                     NonSpecificPsms = numPsms;
                                 break;
                             case Program.SemiSpecificSearchLabel:
-                                if (SemiSpecificPsms != null)
+                                if (SemiSpecificPsms == null)
                                     SemiSpecificPsms = numPsms;
                                 break;
                             case Program.TopDownSearchLabel:
@@ -272,19 +272,19 @@ namespace Auditor
                                     switch (taskNumberReading)
                                     {
                                         case 1:
-                                            if (TopDownInitialSearchPsms != null)
+                                            if (TopDownInitialSearchPsms == null)
                                                 TopDownInitialSearchPsms = numPsms;
                                             break;
                                         case 3:
-                                            if (TopDownPostCalibrationSearchPsms != null)
+                                            if (TopDownPostCalibrationSearchPsms == null)
                                                 TopDownPostCalibrationSearchPsms = numPsms;
                                             break;
                                         case 4:
-                                            if (TopDownPostAveragingSearchPsms != null)
+                                            if (TopDownPostAveragingSearchPsms == null)
                                                 TopDownPostAveragingSearchPsms = numPsms;
                                             break;
                                         case 6:
-                                            if (TopDownPostGPTMDSearchPsms != null)
+                                            if (TopDownPostGPTMDSearchPsms == null)
                                                 TopDownPostGPTMDSearchPsms = numPsms;
                                             break;
                                     }
@@ -292,25 +292,25 @@ namespace Auditor
                                     switch (taskNumberReading)
                                     {
                                         case 1:
-                                            if (TopDownInitialSearchPsms != null)
+                                            if (TopDownInitialSearchPsms == null)
                                                 TopDownInitialSearchPsms = numPsms;
                                             break;
                                         case 3:
-                                            if (TopDownPostCalibrationSearchPsms != null)
+                                            if (TopDownPostCalibrationSearchPsms == null)
                                                 TopDownPostCalibrationSearchPsms = numPsms;
                                             break;
                                         case 5:
-                                            if (TopDownPostAveragingSearchPsms != null)
+                                            if (TopDownPostAveragingSearchPsms == null)
                                                 TopDownPostAveragingSearchPsms = numPsms;
                                             break;
                                         case 7:
-                                            if (TopDownPostGPTMDSearchPsms != null)
+                                            if (TopDownPostGPTMDSearchPsms == null)
                                                 TopDownPostGPTMDSearchPsms = numPsms;
                                             break;
                                     }
                                 break;
                             case Program.GlycoSearchLabel:
-                                if (GlycoSearchPsms != null)
+                                if (GlycoSearchPsms == null)
                                     GlycoSearchPsms = numPsms;
                                 break;
                         }
@@ -325,29 +325,29 @@ namespace Auditor
                                 switch (taskNumberReading)
                                 {
                                     case 1:
-                                        if (InitialSearchTargetPeptides != null)
+                                        if (InitialSearchTargetPeptides == null)
                                             InitialSearchTargetPeptides = numPsms;
                                         break;
                                     case 3:
-                                        if (PostCalibrationTargetPeptides != null)
+                                        if (PostCalibrationTargetPeptides == null)
                                             PostCalibrationTargetPeptides = numPsms;
                                         break;
                                     case 5:
-                                        if (PostGptmdTargetPeptides != null)
+                                        if (PostGptmdTargetPeptides == null)
                                             PostGptmdTargetPeptides = numPsms;
                                         break;
                                 }
                                 break;
                             case Program.ModernSearchLabel:
-                                if (ModernSearchPeptides != null)
+                                if (ModernSearchPeptides == null)
                                     ModernSearchPeptides = numPsms;
                                 break;
                             case Program.NonspecificSearchLabel:
-                                if (NonSpecificPeptides != null)
+                                if (NonSpecificPeptides == null)
                                     NonSpecificPeptides = numPsms;
                                 break;
                             case Program.SemiSpecificSearchLabel:
-                                if (SemiSpecificPeptides != null)
+                                if (SemiSpecificPeptides == null)
                                     SemiSpecificPeptides = numPsms;
                                 break;
                             case Program.TopDownSearchLabel:
@@ -356,19 +356,19 @@ namespace Auditor
                                     switch (taskNumberReading)
                                     {
                                         case 1:
-                                            if (TopDownInitialSearchProteoforms != null)
+                                            if (TopDownInitialSearchProteoforms == null)
                                                 TopDownInitialSearchProteoforms = numPsms;
                                             break;
                                         case 3:
-                                            if (TopDownPostCalibrationSearchProteoforms != null)
+                                            if (TopDownPostCalibrationSearchProteoforms == null)
                                                 TopDownPostCalibrationSearchProteoforms = numPsms;
                                             break;
                                         case 4:
-                                            if (TopDownPostAveragingSearchProteoforms != null)
+                                            if (TopDownPostAveragingSearchProteoforms == null)
                                                 TopDownPostAveragingSearchProteoforms = numPsms;
                                             break;
                                         case 6:
-                                            if (TopDownPostGPTMDSearchProteoforms != null)
+                                            if (TopDownPostGPTMDSearchProteoforms == null)
                                                 TopDownPostGPTMDSearchProteoforms = numPsms;
                                             break;
                                     }
@@ -376,25 +376,25 @@ namespace Auditor
                                     switch (taskNumberReading)
                                     {
                                         case 1:
-                                            if (TopDownInitialSearchProteoforms != null)
+                                            if (TopDownInitialSearchProteoforms == null)
                                                 TopDownInitialSearchProteoforms = numPsms;
                                             break;
                                         case 3:
-                                            if (TopDownPostCalibrationSearchProteoforms != null)
+                                            if (TopDownPostCalibrationSearchProteoforms == null)
                                                 TopDownPostCalibrationSearchProteoforms = numPsms;
                                             break;
                                         case 5:
-                                            if (TopDownPostAveragingSearchProteoforms != null)
+                                            if (TopDownPostAveragingSearchProteoforms == null)
                                                 TopDownPostAveragingSearchProteoforms = numPsms;
                                             break;
                                         case 7:
-                                            if (TopDownPostGPTMDSearchProteoforms != null)
+                                            if (TopDownPostGPTMDSearchProteoforms == null)
                                                 TopDownPostGPTMDSearchProteoforms = numPsms;
                                             break;
                                     }
                                 break;
                             case Program.GlycoSearchLabel:
-                                if (GlycoSearchPeptides != null)
+                                if (GlycoSearchPeptides == null)
                                     GlycoSearchPeptides = numPsms;
                                 break;
                         }
@@ -403,7 +403,7 @@ namespace Auditor
                              && allResultsTxtFile.Key.Equals(Program.ClassicSearchLabel)
                              && taskNumberReading == 1)
                     {
-                        if (InitialSearchProteinGroups != null)
+                        if (InitialSearchProteinGroups == null)
                         {
                             int numProteinGroups = int.Parse(line.Split(':').Last().Trim());
                             InitialSearchProteinGroups = numProteinGroups;
@@ -413,28 +413,28 @@ namespace Auditor
                     // crosslink search results
                     else if (line.Contains("Target inter-crosslinks within 1% FDR:"))
                     {
-                        if (InterlinkCsms != null)
+                        if (InterlinkCsms == null)
                             InterlinkCsms = int.Parse(line.Split(':').Last().Trim());
                     }
                     else if (line.Contains("Target intra-crosslinks within 1% FDR:"))
                     {
-                        if (IntralinkCsms != null)
+                        if (IntralinkCsms == null)
                             IntralinkCsms = int.Parse(line.Split(':').Last().Trim());
                     }
                     else if (line.Contains("Target single peptides within 1% FDR:"))
                     {
-                        if (CrosslinkSinglePsms != null)
+                        if (CrosslinkSinglePsms == null)
                             CrosslinkSinglePsms =
                             int.Parse(line.Split(':').Last().Trim());
                     }
                     else if (line.Contains("Target loop-linked peptides within 1% FDR:"))
                     {
-                        if (LoopCsms != null)
+                        if (LoopCsms == null)
                             LoopCsms = int.Parse(line.Split(':').Last().Trim());
                     }
                     else if (line.Contains("Target deadend peptides within 1% FDR:"))
                     {
-                        if (DeadendCsms != null)
+                        if (DeadendCsms == null)
                             DeadendCsms = int.Parse(line.Split(':').Last().Trim());
                     }
                 }
