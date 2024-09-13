@@ -67,7 +67,7 @@ namespace Auditor
         /// <param name="numberOfDays"></param>
         /// <param name="inputFolder"></param>
         /// <returns></returns>
-        static MetaMorpheusRunResultsDirectories[] GetRunDirectories(int numberOfDays, string inputFolder)
+        public static MetaMorpheusRunResultsDirectories[] GetRunDirectories(int numberOfDays, string inputFolder)
         {
             // get results from last n runs
             MetaMorpheusRunResultsDirectories[] runResults = new MetaMorpheusRunResultsDirectories[numberOfDays];
