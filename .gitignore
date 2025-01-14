@@ -366,3 +366,14 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/MonthlyResultReport/PeptideReport.png
+/MonthlyResultReport/PeptideReport_SemiNonModern.png
+/MonthlyResultReport/ProcessedResults.csv
+/MonthlyResultReport/ProteoformReport_TopDown.png
+/MonthlyResultReport/PSMReport.png
+/MonthlyResultReport/PSMReport_CrossLink.png
+/MonthlyResultReport/PSMReport_SemiNonModernGlyco.png
+/MonthlyResultReport/PSMReport_TopDown.png
+/MonthlyResultReport/TaskTimeReport.png
+/MonthlyResultReport/TaskTimeReport_SemiNonModernXLGlyco.png
+/MonthlyResultReport/TaskTimeReport_TopDown.png
