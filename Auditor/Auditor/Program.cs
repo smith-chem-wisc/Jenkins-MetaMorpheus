@@ -137,49 +137,45 @@ namespace Auditor
         /// </summary>
         static void CleanUpOldRunDirectories(string inputFolder)
         {
+            DateTime dateToStartDeletingAt = new DateTime(2018, 12, 9);
+            var datesToKeep = new List<DateTime>();
+            DeleteDatabaseIndexFolders(inputFolder);
+
+            // keep last 5 days
+            for (int d = 0; d < 5; d++)
+                datesToKeep.Add(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day - d).Date);
+            DeleteOldMzMLFilesFromCalibrationOrAveraging(new DirectoryInfo(inputFolder), datesToKeep);
+
             // aggregate all task result directories
             List<DirectoryInfo> directoriesToPotentiallyDelete = new DirectoryInfo(inputFolder)
                     .GetDirectories()
-                    .OrderByDescending(v => v.CreationTime).ToList();
+                    .Where(v => v.CreationTime.Date.CompareTo(dateToStartDeletingAt) > 0)
+                    .OrderByDescending(v => v.CreationTime)
+                    .ToList();
 
-            DeleteDatabaseIndexFolders(inputFolder);
-            DeleteOldMzMLFilesFromCalibrationOrAveraging(inputFolder);
-
-            DateTime dateToStartDeletingAt = new DateTime(2018, 12, 9);
-
-            directoriesToPotentiallyDelete = directoriesToPotentiallyDelete
-                .Take(directoriesToPotentiallyDelete.Count)
-                .Where(v => v.CreationTime.Date.CompareTo(dateToStartDeletingAt) > 0)
-                .ToList();
-
-            var datesToKeep = new List<DateTime>();
-
+            // keep one per week after the last five days
             int weeks = 0;
-            while (!datesToKeep.Any() || datesToKeep.Last().CompareTo(DateTime.Now) < 0)
+            while (datesToKeep.Last().CompareTo(DateTime.Now) < 0)
             {
                 datesToKeep.Add(dateToStartDeletingAt.Date.AddDays(weeks * 7));
                 weeks++;
             }
 
-            for (int d = 0; d < 5; d++)
-                datesToKeep.Add(new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day - d).Date);
-            
-
             var directoriesToDelete = directoriesToPotentiallyDelete.Where(v => !datesToKeep.Contains(v.CreationTime.Date)).ToList();
 
             foreach (DirectoryInfo directory in directoriesToDelete)
                 Directory.Delete(directory.FullName, true);
-            
         }
 
         /// <summary>
         /// Deletes all .mzML files in the MetaMorpheus output directories
         /// </summary>
-        /// <param name="inputFolder"></param>
-        static void DeleteOldMzMLFilesFromCalibrationOrAveraging(string inputFolder)
+        /// <param name="inputDirectory"></param>
+        static void DeleteOldMzMLFilesFromCalibrationOrAveraging(DirectoryInfo inputDirectory, List<DateTime> datesToKeep)
         {
-            foreach (string mzml in Directory.GetFiles(inputFolder, "*", SearchOption.AllDirectories).Where(file => file.EndsWith(".mzML")))
-                File.Delete(mzml);
+            foreach(var mzML in inputDirectory.GetFiles("*.mzML", SearchOption.AllDirectories)
+                .Where(p => !datesToKeep.Contains(p.CreationTime.Date)))
+                mzML.Delete();
         }
 
         /// <summary>
