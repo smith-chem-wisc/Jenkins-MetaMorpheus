@@ -1,4 +1,7 @@
-﻿using CsvHelper.Configuration.Attributes;
+﻿using CsvHelper;
+using CsvHelper.Configuration;
+using CsvHelper.Configuration.Attributes;
+using CsvHelper.TypeConversion;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -21,11 +24,11 @@ namespace Auditor
         [Name("Post-calibration Peptides")] public int? PostCalibrationTargetPeptides { get; private set; }
         [Name("Post-GPTMD PSMs")] public int? PostGptmdTargetPsms { get; private set; }
         [Name("Post-GPTMD Peptides")] public int? PostGptmdTargetPeptides { get; private set; }
-        [Name("Initial Search Time")] public double? InitialSearchTimeInSeconds { get; private set; }
-        [Name("Calibration Time")] public double? CalibrationTimeInSeconds { get; private set; }
-        [Name("Post-calibration Search Time")] public double? PostCalibrationSearchTimeInSeconds { get; private set; }
-        [Name("GPTMD Time")] public double? GptmdTimeInSeconds { get; private set; }
-        [Name("Post-GPTMD Search Time")] public double? PostGptmdSearchTimeInSeconds { get; private set; }
+        [Name("Initial Search Time")][TypeConverter(typeof(SecondsToMinutesConverter))] public double? InitialSearchTimeInSeconds { get; private set; }
+        [Name("Calibration Time")][TypeConverter(typeof(SecondsToMinutesConverter))] public double? CalibrationTimeInSeconds { get; private set; }
+        [Name("Post-calibration Search Time")][TypeConverter(typeof(SecondsToMinutesConverter))] public double? PostCalibrationSearchTimeInSeconds { get; private set; }
+        [Name("GPTMD Time")][TypeConverter(typeof(SecondsToMinutesConverter))] public double? GptmdTimeInSeconds { get; private set; }
+        [Name("Post-GPTMD Search Time")][TypeConverter(typeof(SecondsToMinutesConverter))] public double? PostGptmdSearchTimeInSeconds { get; private set; }
 
         // Cross Link
         [Name("Interlink CSMs")] public int? InterlinkCsms { get; private set; }
@@ -34,27 +37,27 @@ namespace Auditor
         [Name("Deadend CSMs")] public int? DeadendCsms { get; private set; }
         [Name("Crosslink Single PSMs")] public int? CrosslinkSinglePsms { get; private set; }
         [Name("Crosslink Single Peptides")] public int? CrosslinkSinglePeptides { get; private set; }
-        [Name("XL Search Time")] public double? CrosslinkSearchTimeInSeconds { get; private set; }
+        [Name("XL Search Time")][TypeConverter(typeof(SecondsToMinutesConverter))] public double? CrosslinkSearchTimeInSeconds { get; private set; }
 
         // O-Glyco Search
         [Name("Glyco Search PSMs")] public int? GlycoSearchPsms { get; private set; }
         [Name("Glyco Search Peptides")] public int? GlycoSearchPeptides { get; private set; }
-        [Name("Glyco Search Time")] public double? GlycoSearchTimeInSeconds { get; private set; }
+        [Name("Glyco Search Time")][TypeConverter(typeof(SecondsToMinutesConverter))] public double? GlycoSearchTimeInSeconds { get; private set; }
 
         // Semi-Specific Search
         [Name("Semispecific PSMs")] public int? SemiSpecificPsms { get; private set; }
         [Name("Semispecific Peptides")] public int? SemiSpecificPeptides { get; private set; }
-        [Name("Semispecific Search Time")] public double? SemiSpecificSearchTimeInSeconds { get; private set; }
+        [Name("Semispecific Search Time")][TypeConverter(typeof(SecondsToMinutesConverter))] public double? SemiSpecificSearchTimeInSeconds { get; private set; }
 
         // Non-Specific Search
         [Name("Nonspecific PSMs")] public int? NonSpecificPsms { get; private set; }
         [Name("Nonspecific Peptides")] public int? NonSpecificPeptides { get; private set; }
-        [Name("Nonspecific Search Time")] public double? NonSpecificSearchTimeInSeconds { get; private set; }
+        [Name("Nonspecific Search Time")][TypeConverter(typeof(SecondsToMinutesConverter))] public double? NonSpecificSearchTimeInSeconds { get; private set; }
 
         // Modern Search
         [Name("Modern Search PSMs")] public int? ModernSearchPsms { get; private set; }
         [Name("Modern Search Peptides")] public int? ModernSearchPeptides { get; private set; }
-        [Name("Modern Search Time")] public double? ModernSearchTimeInSeconds { get; private set; }
+        [Name("Modern Search Time")][TypeConverter(typeof(SecondsToMinutesConverter))] public double? ModernSearchTimeInSeconds { get; private set; }
 
         // Top Down
         [Name("TopDown Initial PrSMs")] public double? TopDownInitialSearchPsms { get; private set; }
@@ -65,13 +68,13 @@ namespace Auditor
         [Name("TopDown Post-averaging Proteoforms")] public double? TopDownPostAveragingSearchProteoforms { get; private set; }
         [Name("TopDown Post-GPTMD PrSMs")] public double? TopDownPostGPTMDSearchPsms { get; private set; }
         [Name("TopDown Post-GPTMD Proteoforms")] public double? TopDownPostGPTMDSearchProteoforms { get; private set; }
-        [Name("TopDown Initial Search Time")] public double? TopDownInitialSearchTimeInSeconds { get; private set; }
-        [Name("TopDown Calibration Time")] public double? TopDownCalibrationTimeInSeconds { get; private set; }
-        [Name("TopDown Post-calibration Search Time")] public double? TopDownPostCalibrationSearchTimeInSeconds { get; private set; }
-        [Name("TopDown Averaging Time")] public double? TopDownAveragingTimeInSeconds { get; private set; }
-        [Name("TopDown Post-averaging Search Time")] public double? TopDownPostAveragingSearchTimeInSeconds { get; private set; }
-        [Name("TopDown GPTMD Time")] public double? TopDownGptmdTimeInSeconds { get; private set; }
-        [Name("TopDown Post-GPTMD Search Time")] public double? TopDownPostGPTMDSearchTimeInSeconds { get; private set; }
+        [Name("TopDown Initial Search Time")][TypeConverter(typeof(SecondsToMinutesConverter))] public double? TopDownInitialSearchTimeInSeconds { get; private set; }
+        [Name("TopDown Calibration Time")][TypeConverter(typeof(SecondsToMinutesConverter))] public double? TopDownCalibrationTimeInSeconds { get; private set; }
+        [Name("TopDown Post-calibration Search Time")][TypeConverter(typeof(SecondsToMinutesConverter))] public double? TopDownPostCalibrationSearchTimeInSeconds { get; private set; }
+        [Name("TopDown Averaging Time")][TypeConverter(typeof(SecondsToMinutesConverter))] public double? TopDownAveragingTimeInSeconds { get; private set; }
+        [Name("TopDown Post-averaging Search Time")][TypeConverter(typeof(SecondsToMinutesConverter))] public double? TopDownPostAveragingSearchTimeInSeconds { get; private set; }
+        [Name("TopDown GPTMD Time")][TypeConverter(typeof(SecondsToMinutesConverter))] public double? TopDownGptmdTimeInSeconds { get; private set; }
+        [Name("TopDown Post-GPTMD Search Time")][TypeConverter(typeof(SecondsToMinutesConverter))] public double? TopDownPostGPTMDSearchTimeInSeconds { get; private set; }
 
         // protein groups for initial search (task 1)
         public int? InitialSearchProteinGroups { get; private set; }
@@ -439,6 +442,21 @@ namespace Auditor
                     }
                 }
             }
+        }
+    }
+
+    internal class SecondsToMinutesConverter : DefaultTypeConverter
+    {
+        public override string ConvertToString(object value, IWriterRow row, MemberMapData memberMapData)
+        {
+            if (value is null) // When the task did not exist in jenkins. 
+                return "0";
+            if (value is double || value is double?)
+            {
+                var minutes = (double)value / 60.0;
+                return Math.Round(minutes, 2, MidpointRounding.AwayFromZero).ToString();
+            }
+            throw new ArgumentException("time must be double or double?");
         }
     }
 }
