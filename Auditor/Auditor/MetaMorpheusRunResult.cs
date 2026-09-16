@@ -1,4 +1,4 @@
-﻿using CsvHelper;
+using CsvHelper;
 using CsvHelper.Configuration;
 using CsvHelper.Configuration.Attributes;
 using CsvHelper.TypeConversion;
@@ -76,8 +76,18 @@ namespace Auditor
         [Name("TopDown GPTMD Time")][TypeConverter(typeof(SecondsToMinutesConverter))] public double? TopDownGptmdTimeInSeconds { get; private set; }
         [Name("TopDown Post-GPTMD Search Time")][TypeConverter(typeof(SecondsToMinutesConverter))] public double? TopDownPostGPTMDSearchTimeInSeconds { get; private set; }
 
-        // protein groups for initial search (task 1)
-        public int? InitialSearchProteinGroups { get; private set; }
+        // protein groups, captured for each search stage
+        [Name("InitialSearchProteinGroups")] public int? InitialSearchProteinGroups { get; private set; }
+        [Name("PostCalibrationProteinGroups")] public int? PostCalibrationProteinGroups { get; private set; }
+        [Name("PostGptmdProteinGroups")] public int? PostGptmdProteinGroups { get; private set; }
+        [Name("SemiSpecificProteinGroups")] public int? SemiSpecificProteinGroups { get; private set; }
+        [Name("NonSpecificProteinGroups")] public int? NonSpecificProteinGroups { get; private set; }
+        [Name("ModernSearchProteinGroups")] public int? ModernSearchProteinGroups { get; private set; }
+        [Name("GlycoSearchProteinGroups")] public int? GlycoSearchProteinGroups { get; private set; }
+        [Name("TopDownInitialSearchProteinGroups")] public int? TopDownInitialSearchProteinGroups { get; private set; }
+        [Name("TopDownPostCalibrationSearchProteinGroups")] public int? TopDownPostCalibrationSearchProteinGroups { get; private set; }
+        [Name("TopDownPostAveragingSearchProteinGroups")] public int? TopDownPostAveragingSearchProteinGroups { get; private set; }
+        [Name("TopDownPostGPTMDSearchProteinGroups")] public int? TopDownPostGPTMDSearchProteinGroups { get; private set; }
 
         /// <summary>
         /// There will be 4 allResults.txt files
@@ -402,15 +412,88 @@ namespace Auditor
                                 break;
                         }
                     }
-                    else if (line.Contains("All target protein groups")
-                             && allResultsTxtFile.Key.Equals(Program.ClassicSearchLabel)
-                             && taskNumberReading == 1)
+                    else if (line.Contains("All target") && line.Contains(" groups"))
                     {
-                        if (InitialSearchProteinGroups == null)
+                        int numProteinGroups = int.Parse(line.Split(':').Last().Trim());
+
+                        switch (allResultsTxtFile.Key)
                         {
-                            int numProteinGroups = int.Parse(line.Split(':').Last().Trim());
-                            InitialSearchProteinGroups = numProteinGroups;
-                        }      
+                            case Program.ClassicSearchLabel:
+                                switch (taskNumberReading)
+                                {
+                                    case 1:
+                                        if (InitialSearchProteinGroups == null)
+                                            InitialSearchProteinGroups = numProteinGroups;
+                                        break;
+                                    case 3:
+                                        if (PostCalibrationProteinGroups == null)
+                                            PostCalibrationProteinGroups = numProteinGroups;
+                                        break;
+                                    case 5:
+                                        if (PostGptmdProteinGroups == null)
+                                            PostGptmdProteinGroups = numProteinGroups;
+                                        break;
+                                }
+                                break;
+                            case Program.SemiSpecificSearchLabel:
+                                if (SemiSpecificProteinGroups == null)
+                                    SemiSpecificProteinGroups = numProteinGroups;
+                                break;
+                            case Program.NonspecificSearchLabel:
+                                if (NonSpecificProteinGroups == null)
+                                    NonSpecificProteinGroups = numProteinGroups;
+                                break;
+                            case Program.ModernSearchLabel:
+                                if (ModernSearchProteinGroups == null)
+                                    ModernSearchProteinGroups = numProteinGroups;
+                                break;
+                            case Program.GlycoSearchLabel:
+                                if (GlycoSearchProteinGroups == null)
+                                    GlycoSearchProteinGroups = numProteinGroups;
+                                break;
+                            case Program.TopDownSearchLabel:
+                                if (taskCount == 6)
+                                    switch (taskNumberReading)
+                                    {
+                                        case 1:
+                                            if (TopDownInitialSearchProteinGroups == null)
+                                                TopDownInitialSearchProteinGroups = numProteinGroups;
+                                            break;
+                                        case 3:
+                                            if (TopDownPostCalibrationSearchProteinGroups == null)
+                                                TopDownPostCalibrationSearchProteinGroups = numProteinGroups;
+                                            break;
+                                        case 4:
+                                            if (TopDownPostAveragingSearchProteinGroups == null)
+                                                TopDownPostAveragingSearchProteinGroups = numProteinGroups;
+                                            break;
+                                        case 6:
+                                            if (TopDownPostGPTMDSearchProteinGroups == null)
+                                                TopDownPostGPTMDSearchProteinGroups = numProteinGroups;
+                                            break;
+                                    }
+                                else if (taskCount == 7)
+                                    switch (taskNumberReading)
+                                    {
+                                        case 1:
+                                            if (TopDownInitialSearchProteinGroups == null)
+                                                TopDownInitialSearchProteinGroups = numProteinGroups;
+                                            break;
+                                        case 3:
+                                            if (TopDownPostCalibrationSearchProteinGroups == null)
+                                                TopDownPostCalibrationSearchProteinGroups = numProteinGroups;
+                                            break;
+                                        case 5:
+                                            if (TopDownPostAveragingSearchProteinGroups == null)
+                                                TopDownPostAveragingSearchProteinGroups = numProteinGroups;
+                                            break;
+                                        case 7:
+                                            if (TopDownPostGPTMDSearchProteinGroups == null)
+                                                TopDownPostGPTMDSearchProteinGroups = numProteinGroups;
+                                            break;
+                                    }
+                                break;
+                        }
                     }
 
                     // crosslink search results
