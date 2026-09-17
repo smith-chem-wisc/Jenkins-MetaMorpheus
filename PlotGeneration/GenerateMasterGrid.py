@@ -148,8 +148,13 @@ def draw_lines(
         ax.set_yticks(numpy.linspace(low, high, 4))
     else:
         ymin, ymax = ax.get_ylim()
-        if ymin > 0:
-            ax.set_ylim(ymin * 0.9, ymax * 1.12)
+        if ymax < 1000.0:
+            lower = max(0.0, ymin * 0.9)
+            upper = ymax * 1.12
+        else:
+            lower = max(0.0, ymin - 1000.0)
+            upper = ymax + 1000.0
+        ax.set_ylim(lower, upper)
     ax.grid(True, alpha=0.3, linewidth=0.5)
     date_span = dates.max() - dates.min()
     if date_span.total_seconds() > 0:
