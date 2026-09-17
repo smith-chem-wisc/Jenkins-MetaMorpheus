@@ -114,7 +114,7 @@ def draw_lines(
     finite_values = [v.dropna() for v in values.values()]
     vmax = max(v.max() for v in finite_values)
     vmin = min(v.min() for v in finite_values)
-    tight = len(entries) >= 2 and vmax > 0 and (vmax - vmin) / vmax < 0.02
+    tight = len(entries) >= 2 and vmax > 0 and float(vmax - vmin) / float(vmax) < 0.02
 
     for k, (label, column, color_label) in enumerate(entries):
         color = color_dict[color_label]
@@ -142,6 +142,13 @@ def draw_lines(
                     color=color,
                 )
 
+    date_span = dates.max() - dates.min()
+    if date_span.total_seconds() > 0:
+        first_date = mdates.date2num(dates.min().to_pydatetime())
+        last_date = mdates.date2num(dates.max().to_pydatetime())
+        span_days = date_span.total_seconds() / 86400.0
+        ax.set_xlim(first_date - span_days * 0.08, last_date + span_days * 0.25)
+
     if tight:
         low = vmin - 1.0
         high = vmax + 1.0
@@ -158,12 +165,6 @@ def draw_lines(
             upper = lower + 1.0
         ax.set_ylim(lower, upper)
     ax.grid(True, alpha=0.3, linewidth=0.5)
-    date_span = dates.max() - dates.min()
-    if date_span.total_seconds() > 0:
-        first_date = mdates.date2num(dates.min().to_pydatetime())
-        last_date = mdates.date2num(dates.max().to_pydatetime())
-        span_days = date_span.total_seconds() / 86400.0
-        ax.set_xlim(first_date - span_days * 0.08, last_date + span_days * 0.25)
 
     endpoint_values = []
     for k, (label, column, color_label) in enumerate(entries):
