@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -42,16 +42,21 @@ namespace Auditor
 
         private void ParseAllResultsTextFiles()
         {
-            DateTime timestamp = new DateTime();
-            var nonNullFiles = labelToFileInfo.Where(p => p.Value != null).ToList();
-
-            if (!nonNullFiles.Any())
+            DateTime timestamp;
+            FileInfo firstSourceFile = labelToFileInfo.Values.FirstOrDefault(v => v != null);
+            if (firstSourceFile != null)
             {
-                timestamp = directoryInfos.Select(p => p.Value.CreationTime).First();
+                timestamp = firstSourceFile.CreationTime;
             }
             else
             {
-                timestamp = labelToFileInfo.Select(p => p.Value.CreationTime).First();
+                DateTime firstDirectoryTime = directoryInfos.Values
+                    .Where(v => v != null)
+                    .Select(v => v.CreationTime)
+                    .FirstOrDefault();
+                timestamp = firstDirectoryTime != default(DateTime)
+                    ? firstDirectoryTime
+                    : DateTime.UtcNow;
             }
 
             ParsedRunResult = new MetaMorpheusRunResult(labelToFileInfo, timestamp);

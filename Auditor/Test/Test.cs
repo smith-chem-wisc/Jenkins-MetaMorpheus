@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Linq;
 using NUnit.Framework;
 using Auditor;
@@ -109,6 +109,71 @@ namespace Test
             output.Delete(true);
             
         }
+
+        [Test]
+        public static void TestCrashedSearchDoesNotCrash()
+        {
+            string testRoot = Path.Combine(TestContext.CurrentContext.TestDirectory, "TestCrashedSearch");
+            string input = Path.Combine(testRoot, "Input");
+            string output = Path.Combine(testRoot, "Output");
+            string dbPath = Path.Combine(testRoot, "test.db");
+
+            if (Directory.Exists(testRoot))
+                Directory.Delete(testRoot, true);
+
+            string classicDir = Path.Combine(input, "Classic_[2026-09-16_");
+            Directory.CreateDirectory(classicDir);
+            File.WriteAllText(Path.Combine(classicDir, "allResults.txt"), CrashedSearchTestClassicAllResults);
+
+            Directory.CreateDirectory(Path.Combine(input, "TopDown_[2026-09-16_"));
+
+            Assert.DoesNotThrow(() =>
+                Program.Main(new string[]
+                {
+                    "--i", input,
+                    "--o", output,
+                    "-n", "200000",
+                    "--d", dbPath
+                }));
+
+            string csv = Path.Combine(output, "ProcessedResults.csv");
+            Assert.That(File.Exists(csv));
+            string[] lines = File.ReadAllLines(csv);
+            Assert.AreEqual(2, lines.Length);
+
+            string[] cells = lines[1].Split(',');
+            Assert.AreEqual("88", cells[1]);
+
+            var tmp = new DirectoryInfo(testRoot);
+            if (tmp.Exists)
+                tmp.Delete(true);
+        }
+
+        private const string CrashedSearchTestClassicAllResults =
+            "MetaMorpheus: version test\n" +
+            "Total time: 00:00:07.5430229\n" +
+            "\n" +
+            "Time to run task: 00:00:03.1375917\n" +
+            "\n" +
+            "All target PSMS within 1% FDR: 88\n" +
+            "All target peptides within 1% FDR: 61\n" +
+            "All target protein groups within 1% FDR: 52\n" +
+            "\n" +
+            "Time to run task: 00:00:01.3812761\n" +
+            "\n" +
+            "Time to run task: 00:00:00.8501690\n" +
+            "\n" +
+            "All target PSMS within 1% FDR: 82\n" +
+            "All target peptides within 1% FDR: 55\n" +
+            "All target protein groups within 1% FDR: 46\n" +
+            "\n" +
+            "Time to run task: 00:00:00.8461106\n" +
+            "\n" +
+            "Time to run task: 00:00:00.8722346\n" +
+            "\n" +
+            "All target PSMS within 1% FDR: 83\n" +
+            "All target peptides within 1% FDR: 56\n" +
+            "All target protein groups within 1% FDR: 46\n";
 
         [Test]
         public static void TestOldDates_BottomUp_Initial()
