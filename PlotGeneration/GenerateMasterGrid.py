@@ -2,6 +2,7 @@ import os
 import sys
 
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
 import numpy
 import pandas
 from matplotlib.gridspec import GridSpec
@@ -152,7 +153,10 @@ def draw_lines(
     ax.grid(True, alpha=0.3, linewidth=0.5)
     date_span = dates.max() - dates.min()
     if date_span.total_seconds() > 0:
-        ax.set_xlim(dates.min() - date_span * 0.08, dates.max() + date_span * 0.25)
+        first_date = mdates.date2num(dates.min().to_pydatetime())
+        last_date = mdates.date2num(dates.max().to_pydatetime())
+        span_days = date_span.total_seconds() / 86400.0
+        ax.set_xlim(first_date - span_days * 0.08, last_date + span_days * 0.25)
 
     endpoint_values = []
     for k, (label, column, color_label) in enumerate(entries):
