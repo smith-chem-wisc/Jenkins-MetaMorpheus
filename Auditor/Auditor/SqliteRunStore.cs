@@ -31,7 +31,7 @@ namespace Auditor
                 Directory.CreateDirectory(directory);
 
             connection = new SQLiteConnection(string.Format(CultureInfo.InvariantCulture,
-                "Data Source={0};Version=3;Pooling=True;", databasePath));
+                "Data Source={0};Version=3;Pooling=False;", databasePath));
             connection.Open();
 
             using (var pragma = connection.CreateCommand())
