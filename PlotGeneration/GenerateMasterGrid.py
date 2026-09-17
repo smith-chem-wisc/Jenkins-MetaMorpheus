@@ -278,11 +278,12 @@ def render_ou_psm_split(fig, ax, df, entries, color_dict):
     main = [e for e in entries if e[0] in ("Semi-Specific", "Non-Specific", "Modern")]
     small = [e for e in entries if e not in main]
 
+    plot_common.configure_date_axis(top, df[plot_common.DATE_COL])
+    plot_common.configure_date_axis(bot, df[plot_common.DATE_COL])
     draw_lines(top, df, main, color_dict, show_x=False)
     draw_lines(bot, df, small, color_dict, show_x=True)
 
-    plot_common.configure_date_axis(bot, df[plot_common.DATE_COL])
-    for tick in bot.get_xticklabels():
+    for tick in top.get_xticklabels() + bot.get_xticklabels():
         tick.set_fontsize(8)
     for label in top.get_yticklabels() + bot.get_yticklabels():
         label.set_fontsize(8)
@@ -316,9 +317,10 @@ def main():
                 render_ou_psm_split(fig, ax, df, BOXES[row][col], color_dict)
             else:
                 mode = "stacked" if col == 1 else "lines"
-                render_cell(ax, df, BOXES[row][col], color_dict, mode)
                 if BOXES[row][col]:
                     plot_common.configure_date_axis(ax, df[plot_common.DATE_COL])
+                render_cell(ax, df, BOXES[row][col], color_dict, mode)
+                if BOXES[row][col]:
                     for tick in ax.get_xticklabels():
                         tick.set_fontsize(8)
             if row_pos is None:
