@@ -1,9 +1,10 @@
-﻿using CsvHelper;
+using CsvHelper;
 using CsvHelper.Configuration;
 using Fclp;
 using Fclp.Internals.Extensions;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 
@@ -38,6 +39,9 @@ namespace Auditor
                 .As('n', "NumberOfDaysToReport")
                 .SetDefault(5);
 
+            p.Setup(arg => arg.DatabasePath)
+                .As('d', "DatabasePath");
+
             var result = p.Parse(args);
 
             if (!result.HasErrors)
@@ -52,6 +56,11 @@ namespace Auditor
                 if (!Directory.Exists(p.Object.OutputFolder))
                     Directory.CreateDirectory(p.Object.OutputFolder);
 
+                using (var store = new SqliteRunStore(ResolveDatabasePath(p.Object)))
+                {
+                    store.UpsertRuns(runResults.Select(r => r?.ParsedRunResult));
+                }
+
                 WriteParsingResults(p.Object.OutputFolder, runResults);
 
                 // Only delete unused runs for the daily report
@@ -59,6 +68,18 @@ namespace Auditor
                 if (p.Object.NumberOfDaysToReport == 5) 
                     CleanUpOldRunDirectories(p.Object.InputFolder);
             }
+        }
+
+        static string ResolveDatabasePath(ApplicationArguments args)
+        {
+            if (!string.IsNullOrWhiteSpace(args.DatabasePath))
+                return args.DatabasePath;
+
+            string configured = ConfigurationManager.AppSettings["DatabasePath"];
+            if (!string.IsNullOrWhiteSpace(configured))
+                return configured;
+
+            return Path.Combine(Directory.GetCurrentDirectory(), "audit.db");
         }
 
         /// <summary>
@@ -200,6 +221,7 @@ namespace Auditor
         public string InputFolder { get; set; }
         public string OutputFolder { get; set; }
         public int NumberOfDaysToReport { get; set; }
+        public string DatabasePath { get; set; }
 
         #endregion Public Properties
     }
