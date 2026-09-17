@@ -33,8 +33,14 @@ def available(df, entries):
 def configure_date_axis(ax, dates, max_ticks=12):
     """Explicit date ticks for small run counts; AutoDateLocator for long histories."""
     num_runs = len(dates)
+    date_numbers = [
+        mdates.date2num(
+            value.to_pydatetime() if hasattr(value, "to_pydatetime") else value
+        )
+        for value in dates
+    ]
     if num_runs <= max_ticks:
-        ax.set_xticks(dates)
+        ax.set_xticks(date_numbers)
     else:
         ax.xaxis.set_major_locator(mdates.AutoDateLocator(maxticks=max_ticks))
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%m/%d"))
