@@ -199,18 +199,19 @@ def draw_lines(
 
 def render_stacked(ax, df, entries, color_dict):
     dates = df[plot_common.DATE_COL]
+    plot_dates = [mdates.date2num(value.to_pydatetime()) for value in dates]
     series = [df[col].fillna(0.0).values for _, col, _ in entries]
     colors = [color_dict[c] for _, _, c in entries]
     labels = [label for label, _, _ in entries]
     totals = sum(series)
 
-    ax.stackplot(dates, series, colors=colors, alpha=0.75, linewidth=0.0)
-    ax.plot(dates, totals, color="black", linewidth=1.0, linestyle="--")
+    ax.stackplot(plot_dates, series, colors=colors, alpha=0.75, linewidth=0.0)
+    ax.plot(plot_dates, totals, color="black", linewidth=1.0, linestyle="--")
 
     for i, total in enumerate(totals):
         ax.annotate(
             plot_common.compact_number(total),
-            (dates[i], total),
+            (plot_dates[i], total),
             textcoords="offset points",
             xytext=(0, 3),
             ha="center",
