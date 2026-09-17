@@ -1,11 +1,1 @@
-C:\Python27\python D:\Jenkins_Runs\PlotGeneration\GeneratePsmPlot.py D:\Jenkins_Runs\MonthlyResultReport
-C:\Python27\python D:\Jenkins_Runs\PlotGeneration\GeneratePsmPlot.py D:\Jenkins_Runs\MonthlyResultReport
-C:\Python27\python D:\Jenkins_Runs\PlotGeneration\GeneratePsmPlot_CrossLink.py D:\Jenkins_Runs\MonthlyResultReport
-C:\Python27\python D:\Jenkins_Runs\PlotGeneration\GeneratePsmPlot_SemiNonModernGlyco.py D:\Jenkins_Runs\MonthlyResultReport
-C:\Python27\python D:\Jenkins_Runs\PlotGeneration\GeneratePsmPlot_TopDown.py D:\Jenkins_Runs\MonthlyResultReport
-C:\Python27\python D:\Jenkins_Runs\PlotGeneration\GenerateTaskTimePlot.py D:\Jenkins_Runs\MonthlyResultReport
-C:\Python27\python D:\Jenkins_Runs\PlotGeneration\GenerateTaskTimePlot_SemiNonModernXLGlyco.py D:\Jenkins_Runs\MonthlyResultReport
-C:\Python27\python D:\Jenkins_Runs\PlotGeneration\GenerateTaskTimePlot_TopDown.py D:\Jenkins_Runs\MonthlyResultReport
-C:\Python27\python D:\Jenkins_Runs\PlotGeneration\GeneratePeptidePlot.py D:\Jenkins_Runs\MonthlyResultReport
-C:\Python27\python D:\Jenkins_Runs\PlotGeneration\GeneratePeptidePlot_SemiNonModern.py D:\Jenkins_Runs\MonthlyResultReport
-C:\Python27\python D:\Jenkins_Runs\PlotGeneration\GenerateProteoformPlot_TopDown.py D:\Jenkins_Runs\MonthlyResultReport
+C:\Python27\python D:\Jenkins_Runs\PlotGeneration\GenerateMasterGrid.py D:\Jenkins_Runs\MonthlyResultReport
