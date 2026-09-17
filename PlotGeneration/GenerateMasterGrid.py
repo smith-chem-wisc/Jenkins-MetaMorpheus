@@ -111,8 +111,9 @@ def draw_lines(
 ):
     dates = df[plot_common.DATE_COL]
     values = {column: pandas_numeric(df[column]) for _, column, _ in entries}
-    vmax = max(v.max() for v in values.values())
-    vmin = min(v.min() for v in values.values())
+    finite_values = [v.dropna() for v in values.values()]
+    vmax = max(v.max() for v in finite_values)
+    vmin = min(v.min() for v in finite_values)
     tight = len(entries) >= 2 and vmax > 0 and (vmax - vmin) / vmax < 0.02
 
     for k, (label, column, color_label) in enumerate(entries):
@@ -147,13 +148,14 @@ def draw_lines(
         ax.set_ylim(low, high)
         ax.set_yticks(numpy.linspace(low, high, 4))
     else:
-        ymin, ymax = ax.get_ylim()
-        if ymax < 1000.0:
-            lower = max(0.0, ymin * 0.9)
-            upper = ymax * 1.12
+        if vmax < 1000.0:
+            lower = max(0.0, vmin * 0.9)
+            upper = vmax * 1.12
         else:
-            lower = max(0.0, ymin - 1000.0)
-            upper = ymax + 1000.0
+            lower = max(0.0, vmin - 1000.0)
+            upper = vmax + 1000.0
+        if upper <= lower:
+            upper = lower + 1.0
         ax.set_ylim(lower, upper)
     ax.grid(True, alpha=0.3, linewidth=0.5)
     date_span = dates.max() - dates.min()
